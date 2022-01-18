@@ -13,6 +13,7 @@
 		A237FC9627970A730029C0FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A237FC9427970A730029C0FE /* Main.storyboard */; };
 		A237FC9827970A740029C0FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A237FC9727970A740029C0FE /* Assets.xcassets */; };
 		A237FC9B27970A740029C0FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A237FC9927970A740029C0FE /* LaunchScreen.storyboard */; };
+		A237FCA527970FAF0029C0FE /* FloatingPanel in Frameworks */ = {isa = PBXBuildFile; productRef = A237FCA427970FAF0029C0FE /* FloatingPanel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A237FCA527970FAF0029C0FE /* FloatingPanel in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,12 +79,16 @@
 				A237FC8727970A730029C0FE /* Sources */,
 				A237FC8827970A730029C0FE /* Frameworks */,
 				A237FC8927970A730029C0FE /* Resources */,
+				A237FCA227970E650029C0FE /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = SakuMemo;
+			packageProductDependencies = (
+				A237FCA427970FAF0029C0FE /* FloatingPanel */,
+			);
 			productName = SakuMemo;
 			productReference = A237FC8B27970A730029C0FE /* SakuMemo.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +117,9 @@
 				Base,
 			);
 			mainGroup = A237FC8227970A730029C0FE;
+			packageReferences = (
+				A237FCA327970FAF0029C0FE /* XCRemoteSwiftPackageReference "FloatingPanel" */,
+			);
 			productRefGroup = A237FC8C27970A730029C0FE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -132,6 +141,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A237FCA227970E650029C0FE /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A237FC8727970A730029C0FE /* Sources */ = {
@@ -360,6 +389,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A237FCA327970FAF0029C0FE /* XCRemoteSwiftPackageReference "FloatingPanel" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scenee/FloatingPanel";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A237FCA427970FAF0029C0FE /* FloatingPanel */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A237FCA327970FAF0029C0FE /* XCRemoteSwiftPackageReference "FloatingPanel" */;
+			productName = FloatingPanel;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A237FC8327970A730029C0FE /* Project object */;
 }

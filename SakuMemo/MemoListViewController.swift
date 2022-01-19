@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class MemoListViewController: UIViewController {
     
@@ -16,6 +17,28 @@ class MemoListViewController: UIViewController {
         listTableView.delegate = self
         listTableView.dataSource = self
         listTableView.layer.cornerRadius = 10
+      
+//        // テストデータを追加
+//        let memoModel = MemoModel()
+//        memoModel.title = "タイトル"
+//        memoModel.sentence = "文章文章文章文章文章文章"
+//        do {
+//            let realm = try Realm()
+//            try realm.write {
+//                realm.add(memoModel)
+//            }
+//        } catch let error as NSError {
+//            print(error)
+//        }
+        
+//        //　テストデータを取得
+//        do {
+//            let realm = try Realm()
+//            let results = realm.objects(MemoModel.self)
+//            print(results)
+//        } catch let error as NSError {
+//            print(error)
+//        }
     }
 
 

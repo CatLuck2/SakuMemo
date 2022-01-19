@@ -15,6 +15,7 @@ class MemoListViewController: UIViewController {
         super.viewDidLoad()
         listTableView.delegate = self
         listTableView.dataSource = self
+        listTableView.layer.cornerRadius = 10
     }
 
 

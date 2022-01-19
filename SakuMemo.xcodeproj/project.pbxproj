@@ -18,6 +18,8 @@
 		A237FCAA279803070029C0FE /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = A237FCA9279803070029C0FE /* Realm */; };
 		A237FCAC279803070029C0FE /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A237FCAB279803070029C0FE /* RealmSwift */; };
 		A237FCAE279803940029C0FE /* MemoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A237FCAD279803940029C0FE /* MemoModel.swift */; };
+		A237FCB1279804AB0029C0FE /* MemoListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A237FCAF279804AB0029C0FE /* MemoListTableViewCell.swift */; };
+		A237FCB2279804AB0029C0FE /* MemoListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A237FCB0279804AB0029C0FE /* MemoListTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +33,8 @@
 		A237FC9C27970A740029C0FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A237FCA62797F6C90029C0FE /* MemoEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoEditViewController.swift; sourceTree = "<group>"; };
 		A237FCAD279803940029C0FE /* MemoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoModel.swift; sourceTree = "<group>"; };
+		A237FCAF279804AB0029C0FE /* MemoListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoListTableViewCell.swift; sourceTree = "<group>"; };
+		A237FCB0279804AB0029C0FE /* MemoListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemoListTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +73,8 @@
 				A237FC8E27970A730029C0FE /* AppDelegate.swift */,
 				A237FC9027970A730029C0FE /* SceneDelegate.swift */,
 				A237FCAD279803940029C0FE /* MemoModel.swift */,
+				A237FCAF279804AB0029C0FE /* MemoListTableViewCell.swift */,
+				A237FCB0279804AB0029C0FE /* MemoListTableViewCell.xib */,
 				A237FC9227970A730029C0FE /* MemoListViewController.swift */,
 				A237FCA62797F6C90029C0FE /* MemoEditViewController.swift */,
 				A237FC9427970A730029C0FE /* Main.storyboard */,
@@ -150,6 +156,7 @@
 				A237FC9B27970A740029C0FE /* LaunchScreen.storyboard in Resources */,
 				A237FC9827970A740029C0FE /* Assets.xcassets in Resources */,
 				A237FC9627970A730029C0FE /* Main.storyboard in Resources */,
+				A237FCB2279804AB0029C0FE /* MemoListTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -181,6 +188,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A237FCAE279803940029C0FE /* MemoModel.swift in Sources */,
+				A237FCB1279804AB0029C0FE /* MemoListTableViewCell.swift in Sources */,
 				A237FC9327970A730029C0FE /* MemoListViewController.swift in Sources */,
 				A237FC8F27970A730029C0FE /* AppDelegate.swift in Sources */,
 				A237FCA72797F6C90029C0FE /* MemoEditViewController.swift in Sources */,

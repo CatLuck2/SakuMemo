@@ -11,6 +11,7 @@ import RealmSwift
 class MemoListViewController: UIViewController {
     
     @IBOutlet weak var listTableView: UITableView!
+    private var memoListDatas: [MemoModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,14 +33,17 @@ class MemoListViewController: UIViewController {
 //            print(error)
 //        }
         
-//        //　テストデータを取得
-//        do {
-//            let realm = try Realm()
-//            let results = realm.objects(MemoModel.self)
-//            print(results)
-//        } catch let error as NSError {
-//            print(error)
-//        }
+        //　テストデータを取得
+        do {
+            let realm = try Realm()
+            let results = realm.objects(MemoModel.self)
+            for result in results {
+                memoListDatas.append(result)
+            }
+            print(memoListDatas)
+        } catch let error as NSError {
+            print(error)
+        }
     }
 
 
@@ -58,6 +62,7 @@ extension MemoListViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MemoListTableViewCellID", for: indexPath) as? MemoListTableViewCell else {
             return UITableViewCell()
         }
+        cell.setMemoDatasToCell(title: memoListDatas[0].title, sentence: memoListDatas[0].sentence)
         return cell
     }
     

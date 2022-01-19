@@ -23,4 +23,9 @@ class MemoListTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func setMemoDatasToCell(title: String, sentence: String) {
+        titleLabel.text = title
+        sentenceLabel.text = sentence
+    }
+    
 }

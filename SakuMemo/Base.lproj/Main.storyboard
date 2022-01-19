@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Memo List View Controller-->
+        <!--メモ一覧-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MemoListViewController" customModule="SakuMemo" customModuleProvider="target" sceneMemberID="viewController">
@@ -30,7 +30,7 @@
                             <constraint firstItem="3DL-hL-p3S" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="s4b-hw-AyK"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="n9S-OE-3lC"/>
+                    <navigationItem key="navigationItem" title="メモ一覧" id="n9S-OE-3lC"/>
                     <connections>
                         <outlet property="listTableView" destination="3DL-hL-p3S" id="RYV-5g-ftu"/>
                         <segue destination="C68-RJ-Bdc" kind="show" identifier="" id="4z7-en-cf8"/>

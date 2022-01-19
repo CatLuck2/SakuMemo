@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import RealmSwift
 
-struct MemoModel {
-    private var title: String
-    private var sentence: String
+class MemoModel: Object {
+    @objc dynamic var title: String = ""
+    @objc dynamic var sentence: String = ""
 }

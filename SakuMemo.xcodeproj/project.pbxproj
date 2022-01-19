@@ -15,6 +15,9 @@
 		A237FC9B27970A740029C0FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A237FC9927970A740029C0FE /* LaunchScreen.storyboard */; };
 		A237FCA527970FAF0029C0FE /* FloatingPanel in Frameworks */ = {isa = PBXBuildFile; productRef = A237FCA427970FAF0029C0FE /* FloatingPanel */; };
 		A237FCA72797F6C90029C0FE /* MemoEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A237FCA62797F6C90029C0FE /* MemoEditViewController.swift */; };
+		A237FCAA279803070029C0FE /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = A237FCA9279803070029C0FE /* Realm */; };
+		A237FCAC279803070029C0FE /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A237FCAB279803070029C0FE /* RealmSwift */; };
+		A237FCAE279803940029C0FE /* MemoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A237FCAD279803940029C0FE /* MemoModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +30,7 @@
 		A237FC9A27970A740029C0FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A237FC9C27970A740029C0FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A237FCA62797F6C90029C0FE /* MemoEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoEditViewController.swift; sourceTree = "<group>"; };
+		A237FCAD279803940029C0FE /* MemoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,6 +38,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A237FCAC279803070029C0FE /* RealmSwift in Frameworks */,
+				A237FCAA279803070029C0FE /* Realm in Frameworks */,
 				A237FCA527970FAF0029C0FE /* FloatingPanel in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -62,6 +68,7 @@
 			children = (
 				A237FC8E27970A730029C0FE /* AppDelegate.swift */,
 				A237FC9027970A730029C0FE /* SceneDelegate.swift */,
+				A237FCAD279803940029C0FE /* MemoModel.swift */,
 				A237FC9227970A730029C0FE /* MemoListViewController.swift */,
 				A237FCA62797F6C90029C0FE /* MemoEditViewController.swift */,
 				A237FC9427970A730029C0FE /* Main.storyboard */,
@@ -91,6 +98,8 @@
 			name = SakuMemo;
 			packageProductDependencies = (
 				A237FCA427970FAF0029C0FE /* FloatingPanel */,
+				A237FCA9279803070029C0FE /* Realm */,
+				A237FCAB279803070029C0FE /* RealmSwift */,
 			);
 			productName = SakuMemo;
 			productReference = A237FC8B27970A730029C0FE /* SakuMemo.app */;
@@ -122,6 +131,7 @@
 			mainGroup = A237FC8227970A730029C0FE;
 			packageReferences = (
 				A237FCA327970FAF0029C0FE /* XCRemoteSwiftPackageReference "FloatingPanel" */,
+				A237FCA8279803070029C0FE /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = A237FC8C27970A730029C0FE /* Products */;
 			projectDirPath = "";
@@ -170,6 +180,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A237FCAE279803940029C0FE /* MemoModel.swift in Sources */,
 				A237FC9327970A730029C0FE /* MemoListViewController.swift in Sources */,
 				A237FC8F27970A730029C0FE /* AppDelegate.swift in Sources */,
 				A237FCA72797F6C90029C0FE /* MemoEditViewController.swift in Sources */,
@@ -403,6 +414,14 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		A237FCA8279803070029C0FE /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -410,6 +429,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A237FCA327970FAF0029C0FE /* XCRemoteSwiftPackageReference "FloatingPanel" */;
 			productName = FloatingPanel;
+		};
+		A237FCA9279803070029C0FE /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A237FCA8279803070029C0FE /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		A237FCAB279803070029C0FE /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A237FCA8279803070029C0FE /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

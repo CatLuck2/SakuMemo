@@ -15,6 +15,36 @@
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KQw-aO-PrQ">
+                        <rect key="frame" x="16" y="0.0" width="288" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="KQw-aO-PrQ" secondAttribute="height" multiplier="96:7" id="JC5-ci-t9e"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wwQ-5z-Az2">
+                        <rect key="frame" x="16" y="23" width="288" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="wwQ-5z-Az2" secondAttribute="height" multiplier="96:7" id="jUH-gn-38d"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="KQw-aO-PrQ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="63w-DS-dfC"/>
+                    <constraint firstAttribute="trailing" secondItem="wwQ-5z-Az2" secondAttribute="trailing" constant="16" id="B6I-Ox-n8U"/>
+                    <constraint firstItem="wwQ-5z-Az2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="OgB-Bl-5Tf"/>
+                    <constraint firstItem="KQw-aO-PrQ" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="Xcg-L0-UvT"/>
+                    <constraint firstItem="wwQ-5z-Az2" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="iFW-3f-UcY"/>
+                    <constraint firstAttribute="trailing" secondItem="KQw-aO-PrQ" secondAttribute="trailing" constant="16" id="lMR-cA-rHt"/>
+                    <constraint firstItem="KQw-aO-PrQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="mG4-xL-SBB"/>
+                    <constraint firstAttribute="bottom" secondItem="wwQ-5z-Az2" secondAttribute="bottom" id="sSw-hK-fkh"/>
+                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <point key="canvasLocation" x="137.68115942028987" y="113.83928571428571"/>

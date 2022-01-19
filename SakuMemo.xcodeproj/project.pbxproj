@@ -9,22 +9,24 @@
 /* Begin PBXBuildFile section */
 		A237FC8F27970A730029C0FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A237FC8E27970A730029C0FE /* AppDelegate.swift */; };
 		A237FC9127970A730029C0FE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A237FC9027970A730029C0FE /* SceneDelegate.swift */; };
-		A237FC9327970A730029C0FE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A237FC9227970A730029C0FE /* ViewController.swift */; };
+		A237FC9327970A730029C0FE /* MemoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A237FC9227970A730029C0FE /* MemoListViewController.swift */; };
 		A237FC9627970A730029C0FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A237FC9427970A730029C0FE /* Main.storyboard */; };
 		A237FC9827970A740029C0FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A237FC9727970A740029C0FE /* Assets.xcassets */; };
 		A237FC9B27970A740029C0FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A237FC9927970A740029C0FE /* LaunchScreen.storyboard */; };
 		A237FCA527970FAF0029C0FE /* FloatingPanel in Frameworks */ = {isa = PBXBuildFile; productRef = A237FCA427970FAF0029C0FE /* FloatingPanel */; };
+		A237FCA72797F6C90029C0FE /* MemoEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A237FCA62797F6C90029C0FE /* MemoEditViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A237FC8B27970A730029C0FE /* SakuMemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SakuMemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A237FC8E27970A730029C0FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A237FC9027970A730029C0FE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A237FC9227970A730029C0FE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A237FC9227970A730029C0FE /* MemoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoListViewController.swift; sourceTree = "<group>"; };
 		A237FC9527970A730029C0FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A237FC9727970A740029C0FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A237FC9A27970A740029C0FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A237FC9C27970A740029C0FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A237FCA62797F6C90029C0FE /* MemoEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoEditViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +62,8 @@
 			children = (
 				A237FC8E27970A730029C0FE /* AppDelegate.swift */,
 				A237FC9027970A730029C0FE /* SceneDelegate.swift */,
-				A237FC9227970A730029C0FE /* ViewController.swift */,
+				A237FC9227970A730029C0FE /* MemoListViewController.swift */,
+				A237FCA62797F6C90029C0FE /* MemoEditViewController.swift */,
 				A237FC9427970A730029C0FE /* Main.storyboard */,
 				A237FC9727970A740029C0FE /* Assets.xcassets */,
 				A237FC9927970A740029C0FE /* LaunchScreen.storyboard */,
@@ -167,8 +170,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A237FC9327970A730029C0FE /* ViewController.swift in Sources */,
+				A237FC9327970A730029C0FE /* MemoListViewController.swift in Sources */,
 				A237FC8F27970A730029C0FE /* AppDelegate.swift in Sources */,
+				A237FCA72797F6C90029C0FE /* MemoEditViewController.swift in Sources */,
 				A237FC9127970A730029C0FE /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

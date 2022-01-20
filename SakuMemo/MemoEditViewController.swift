@@ -6,14 +6,53 @@
 //
 
 import UIKit
+import RealmSwift
 
 class MemoEditViewControlelr: UIViewController {
     
     @IBOutlet weak var memoTextView: UITextView!
+    private var selectedMemoModel: MemoModel?
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if selectedMemoModel != nil {
+            memoTextView.text = selectedMemoModel!.sentence
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setButtonsInKeyboard()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if selectedMemoModel != nil {
+            do {
+                let realm = try Realm()
+                try realm.write {
+                    selectedMemoModel!.sentence = memoTextView.text
+                }
+            } catch let error as NSError {
+                print(error)
+            }
+        } else {
+            let newMemoModel = MemoModel()
+            newMemoModel.title = "タイトル"
+            newMemoModel.sentence = memoTextView.text
+            do {
+                let realm = try Realm()
+                try realm.write {
+                    realm.add(newMemoModel, update: .modified)
+                }
+            } catch let error as NSError {
+                print(error)
+            }
+        }
+    }
+    
+    func setSelectedMemoModel(memoModel: MemoModel) {
+        self.selectedMemoModel = memoModel
     }
     
     func setButtonsInKeyboard() {

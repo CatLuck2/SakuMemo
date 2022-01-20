@@ -11,9 +11,9 @@ import RealmSwift
 class MemoListViewController: UIViewController {
     
     @IBOutlet weak var listTableView: UITableView!
-    private var memoListDatas: [MemoModel] = []
     @IBOutlet weak var editListBarButton: UIBarButtonItem!
     @IBOutlet weak var addMemoButton: UIButton!
+    private var memoListDatas: Results<MemoModel>!
     
     
     @IBAction func editListBarButton(_ sender: UIBarButtonItem) {
@@ -33,6 +33,17 @@ class MemoListViewController: UIViewController {
         self.navigationController?.pushViewController(memoEditViewController, animated: true)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        do {
+            let realm = try Realm()
+            memoListDatas = realm.objects(MemoModel.self)
+        } catch let error as NSError {
+            print(error)
+        }
+        listTableView.reloadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         listTableView.delegate = self
@@ -46,31 +57,6 @@ class MemoListViewController: UIViewController {
         addMemoButton.layer.shadowRadius = 8.0
         addMemoButton.layer.shadowColor = UIColor.black.cgColor
         addMemoButton.layer.shadowOffset = CGSize(width: 2.0, height: 1.0)
-      
-//        // テストデータを追加
-        let memoModel = MemoModel()
-        memoModel.title = "タイトル"
-        memoModel.sentence = "文章文章文章文章文章文章"
-        do {
-            let realm = try Realm()
-            try realm.write {
-                realm.add(memoModel, update: .modified)
-            }
-        } catch let error as NSError {
-            print(error)
-        }
-        
-        //　テストデータを取得
-        do {
-            let realm = try Realm()
-            let results = realm.objects(MemoModel.self)
-            for result in results {
-                memoListDatas.append(result)
-            }
-            print(memoListDatas)
-        } catch let error as NSError {
-            print(error)
-        }
     }
 
     override func setEditing(_ editing: Bool, animated: Bool) {
@@ -92,7 +78,7 @@ extension MemoListViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MemoListTableViewCellID", for: indexPath) as? MemoListTableViewCell else {
             return UITableViewCell()
         }
-        cell.setMemoDatasToCell(title: memoListDatas[0].title, sentence: memoListDatas[0].sentence)
+        cell.setMemoDatasToCell(title: memoListDatas[indexPath.row].title, sentence: memoListDatas[indexPath.row].sentence)
         return cell
     }
     
@@ -100,6 +86,7 @@ extension MemoListViewController: UITableViewDelegate, UITableViewDataSource {
         guard let memoEditViewController = self.storyboard?.instantiateViewController(withIdentifier: "segueToMemoEditViewController") as? MemoEditViewControlelr else {
             return
         }
+        memoEditViewController.setSelectedMemoModel(memoModel: memoListDatas[indexPath.row])
         self.navigationController?.pushViewController(memoEditViewController, animated: true)
     }
     
@@ -107,8 +94,9 @@ extension MemoListViewController: UITableViewDelegate, UITableViewDataSource {
         if editingStyle == .delete {
             do {
                 let realm = try Realm()
+                let selectedMemoObject = realm.objects(MemoModel.self).filter("id == \(memoListDatas[indexPath.row].id)")
                 try realm.write {
-                    memoListDatas.remove(at: indexPath.row)
+                    realm.delete(selectedMemoObject)
                 }
             } catch let error as NSError {
                 print(error)

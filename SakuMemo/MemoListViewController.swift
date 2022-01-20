@@ -26,6 +26,13 @@ class MemoListViewController: UIViewController {
         }
     }
     
+    @IBAction func addMemoButton(_ sender: UIButton) {
+        guard let memoEditViewController = self.storyboard?.instantiateViewController(withIdentifier: "segueToMemoEditViewController") as? MemoEditViewControlelr else {
+            return
+        }
+        self.navigationController?.pushViewController(memoEditViewController, animated: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         listTableView.delegate = self

@@ -12,6 +12,17 @@ class MemoListViewController: UIViewController {
     
     @IBOutlet weak var listTableView: UITableView!
     private var memoListDatas: [MemoModel] = []
+    @IBOutlet weak var editListBarButton: UIBarButtonItem!
+    
+    @IBAction func editListBarButton(_ sender: UIBarButtonItem) {
+        if listTableView.isEditing == true {
+            editListBarButton.title = "編集"
+            listTableView.isEditing = false
+        } else {
+            editListBarButton.title = "完了"
+            listTableView.isEditing = true
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +57,9 @@ class MemoListViewController: UIViewController {
         }
     }
 
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: true)
+    }
 
 }
 
@@ -55,7 +69,7 @@ extension MemoListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return memoListDatas.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -71,5 +85,19 @@ extension MemoListViewController: UITableViewDelegate, UITableViewDataSource {
             return
         }
         self.navigationController?.pushViewController(memoEditViewController, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            do {
+                let realm = try Realm()
+                try realm.write {
+                    memoListDatas.remove(at: indexPath.row)
+                }
+            } catch let error as NSError {
+                print(error)
+            }
+        }
+        tableView.reloadData()
     }
 }

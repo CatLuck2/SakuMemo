@@ -30,8 +30,15 @@
                             <constraint firstItem="3DL-hL-p3S" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="s4b-hw-AyK"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="メモ一覧" id="n9S-OE-3lC"/>
+                    <navigationItem key="navigationItem" title="メモ一覧" id="n9S-OE-3lC">
+                        <barButtonItem key="rightBarButtonItem" title="編集" id="7ls-Hx-Yo6">
+                            <connections>
+                                <action selector="editListBarButton:" destination="BYZ-38-t0r" id="7hy-p8-mDC"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="editListBarButton" destination="7ls-Hx-Yo6" id="x3i-o2-dv0"/>
                         <outlet property="listTableView" destination="3DL-hL-p3S" id="RYV-5g-ftu"/>
                         <segue destination="C68-RJ-Bdc" kind="show" identifier="" id="4z7-en-cf8"/>
                     </connections>

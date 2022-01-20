@@ -13,6 +13,8 @@ class MemoListViewController: UIViewController {
     @IBOutlet weak var listTableView: UITableView!
     private var memoListDatas: [MemoModel] = []
     @IBOutlet weak var editListBarButton: UIBarButtonItem!
+    @IBOutlet weak var addMemoButton: UIButton!
+    
     
     @IBAction func editListBarButton(_ sender: UIBarButtonItem) {
         if listTableView.isEditing == true {
@@ -30,6 +32,13 @@ class MemoListViewController: UIViewController {
         listTableView.dataSource = self
         listTableView.register(UINib(nibName: "MemoListTableViewCell", bundle: nil), forCellReuseIdentifier: "MemoListTableViewCellID")
         listTableView.layer.cornerRadius = 10
+        
+        addMemoButton.layer.cornerRadius = 40
+        addMemoButton.layer.backgroundColor = UIColor.white.cgColor
+        addMemoButton.layer.shadowOpacity = 0.6
+        addMemoButton.layer.shadowRadius = 8.0
+        addMemoButton.layer.shadowColor = UIColor.black.cgColor
+        addMemoButton.layer.shadowOffset = CGSize(width: 2.0, height: 1.0)
       
 //        // テストデータを追加
 //        let memoModel = MemoModel()

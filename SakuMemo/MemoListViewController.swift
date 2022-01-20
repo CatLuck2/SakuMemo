@@ -48,17 +48,17 @@ class MemoListViewController: UIViewController {
         addMemoButton.layer.shadowOffset = CGSize(width: 2.0, height: 1.0)
       
 //        // テストデータを追加
-//        let memoModel = MemoModel()
-//        memoModel.title = "タイトル"
-//        memoModel.sentence = "文章文章文章文章文章文章"
-//        do {
-//            let realm = try Realm()
-//            try realm.write {
-//                realm.add(memoModel)
-//            }
-//        } catch let error as NSError {
-//            print(error)
-//        }
+        let memoModel = MemoModel()
+        memoModel.title = "タイトル"
+        memoModel.sentence = "文章文章文章文章文章文章"
+        do {
+            let realm = try Realm()
+            try realm.write {
+                realm.add(memoModel, update: .modified)
+            }
+        } catch let error as NSError {
+            print(error)
+        }
         
         //　テストデータを取得
         do {

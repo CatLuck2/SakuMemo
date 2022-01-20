@@ -9,6 +9,11 @@ import UIKit
 import RealmSwift
 
 class MemoModel: Object {
+    @objc dynamic var id: String = "\(Int(arc4random_uniform(10000)))"
     @objc dynamic var title: String = ""
     @objc dynamic var sentence: String = ""
+    
+    override static func primaryKey() -> String? {
+        return "id"
+    }
 }

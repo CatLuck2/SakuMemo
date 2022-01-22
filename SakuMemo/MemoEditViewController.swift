@@ -16,7 +16,13 @@ class MemoEditViewControlelr: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if selectedMemoModel != nil {
-            memoTextView.text = selectedMemoModel!.sentence
+            // Data->NSMutableAttributedString
+            do {
+                let data = try NSKeyedUnarchiver.unarchivedObject(ofClass: NSMutableAttributedString.self, from: selectedMemoModel!.sentence)
+                memoTextView.attributedText = data
+            } catch let error as NSError {
+                print(error)
+            }
         }
     }
     
@@ -31,16 +37,21 @@ class MemoEditViewControlelr: UIViewController {
             do {
                 let realm = try Realm()
                 try realm.write {
-                    selectedMemoModel!.sentence = memoTextView.text
+                    // NSMutableAttributedString->Data
+                    let data = try NSKeyedArchiver.archivedData(withRootObject: NSMutableAttributedString(attributedString: memoTextView.attributedText), requiringSecureCoding: false)
+                    selectedMemoModel!.sentence = data
                 }
             } catch let error as NSError {
                 print(error)
             }
         } else {
-            let newMemoModel = MemoModel()
-            newMemoModel.title = "タイトル"
-            newMemoModel.sentence = memoTextView.text
             do {
+                let newMemoModel = MemoModel()
+                newMemoModel.title = "タイトル"
+                // NSMutableAttributedString->Data
+                let data = try NSKeyedArchiver.archivedData(withRootObject: NSMutableAttributedString(attributedString: memoTextView.attributedText), requiringSecureCoding: false)
+                newMemoModel.sentence = data
+                
                 let realm = try Realm()
                 try realm.write {
                     realm.add(newMemoModel, update: .modified)

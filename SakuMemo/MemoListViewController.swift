@@ -78,7 +78,6 @@ extension MemoListViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MemoListTableViewCellID", for: indexPath) as? MemoListTableViewCell else {
             return UITableViewCell()
         }
-        print(memoListDatas[indexPath.row].sentence)
         //Data->NSMutableAttributedString
         do {
             let data = try NSKeyedUnarchiver.unarchivedObject(ofClass: NSMutableAttributedString.self, from: memoListDatas[indexPath.row].sentence)

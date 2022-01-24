@@ -42,7 +42,18 @@ struct WidgetEntryView : View {
     var entry: Provider.Entry
 
     var body: some View {
-        Text(entry.date, style: .time)
+        Text("メモを入力してください").lineLimit(nil)
+            .padding(.vertical, 10)
+            .padding(.horizontal, 20)
+    }
+}
+
+struct WidgetPlaceholderView: View {
+    var body: some View {
+        Text("メモを入力してください").lineLimit(nil)
+            .padding(.vertical, 10)
+            .padding(.horizontal, 20)
+            .redacted(reason: .placeholder)
     }
 }
 
@@ -63,5 +74,7 @@ struct Widget_Previews: PreviewProvider {
     static var previews: some View {
         WidgetEntryView(entry: SimpleEntry(date: Date()))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
+        WidgetEntryView(entry: SimpleEntry(date: Date()))
+            .previewContext(WidgetPreviewContext(family: .systemMedium))
     }
 }

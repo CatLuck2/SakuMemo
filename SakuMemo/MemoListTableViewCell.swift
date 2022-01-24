@@ -9,7 +9,6 @@ import UIKit
 
 class MemoListTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var sentenceLabel: UILabel!
     
     override func awakeFromNib() {
@@ -23,8 +22,7 @@ class MemoListTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setMemoDatasToCell(title: String, sentence: NSMutableAttributedString) {
-        titleLabel.text = title
+    func setMemoDatasToCell(sentence: NSMutableAttributedString) {
         sentenceLabel.attributedText = sentence
     }
     

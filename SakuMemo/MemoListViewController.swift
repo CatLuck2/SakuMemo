@@ -81,7 +81,7 @@ extension MemoListViewController: UITableViewDelegate, UITableViewDataSource {
         //Data->NSMutableAttributedString
         do {
             let data = try NSKeyedUnarchiver.unarchivedObject(ofClass: NSMutableAttributedString.self, from: memoListDatas[indexPath.row].sentence)
-            cell.setMemoDatasToCell(title: memoListDatas[indexPath.row].title, sentence: data!)
+            cell.setMemoDatasToCell(sentence: data!)
         } catch let error as NSError {
             print(error)
         }

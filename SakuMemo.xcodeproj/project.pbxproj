@@ -9,17 +9,12 @@
 /* Begin PBXBuildFile section */
 		A237FC8F27970A730029C0FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A237FC8E27970A730029C0FE /* AppDelegate.swift */; };
 		A237FC9127970A730029C0FE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A237FC9027970A730029C0FE /* SceneDelegate.swift */; };
-		A237FC9327970A730029C0FE /* MemoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A237FC9227970A730029C0FE /* MemoListViewController.swift */; };
 		A237FC9627970A730029C0FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A237FC9427970A730029C0FE /* Main.storyboard */; };
 		A237FC9827970A740029C0FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A237FC9727970A740029C0FE /* Assets.xcassets */; };
 		A237FC9B27970A740029C0FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A237FC9927970A740029C0FE /* LaunchScreen.storyboard */; };
 		A237FCA527970FAF0029C0FE /* FloatingPanel in Frameworks */ = {isa = PBXBuildFile; productRef = A237FCA427970FAF0029C0FE /* FloatingPanel */; };
-		A237FCA72797F6C90029C0FE /* MemoEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A237FCA62797F6C90029C0FE /* MemoEditViewController.swift */; };
 		A237FCAA279803070029C0FE /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = A237FCA9279803070029C0FE /* Realm */; };
 		A237FCAC279803070029C0FE /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A237FCAB279803070029C0FE /* RealmSwift */; };
-		A237FCAE279803940029C0FE /* MemoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A237FCAD279803940029C0FE /* MemoModel.swift */; };
-		A237FCB1279804AB0029C0FE /* MemoListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A237FCAF279804AB0029C0FE /* MemoListTableViewCell.swift */; };
-		A237FCB2279804AB0029C0FE /* MemoListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A237FCB0279804AB0029C0FE /* MemoListTableViewCell.xib */; };
 		A269BA9127A53523006944FC /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A269BA4B27A52869006944FC /* WidgetKit.framework */; };
 		A269BA9227A53523006944FC /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A269BA4D27A52869006944FC /* SwiftUI.framework */; };
 		A269BA9527A53523006944FC /* MemoWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = A269BA9427A53523006944FC /* MemoWidget.swift */; };
@@ -33,8 +28,25 @@
 		A269BAB127A537F4006944FC /* Intents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A269BAB027A537F4006944FC /* Intents.framework */; };
 		A269BAB427A537F4006944FC /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A269BAB327A537F4006944FC /* IntentHandler.swift */; };
 		A269BAB827A537F4006944FC /* MemoIntents.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A269BAAF27A537F4006944FC /* MemoIntents.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		A269BABC27A537FE006944FC /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A269BAB327A537F4006944FC /* IntentHandler.swift */; };
 		A269BABD27A53811006944FC /* MemoWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = A269BA9627A53523006944FC /* MemoWidget.intentdefinition */; };
+		A269BACB27A54CC9006944FC /* MemoListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A237FCB0279804AB0029C0FE /* MemoListTableViewCell.xib */; };
+		A269BACC27A54CC9006944FC /* MemoEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A237FCA62797F6C90029C0FE /* MemoEditViewController.swift */; };
+		A269BACD27A54CC9006944FC /* MemoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A237FCAD279803940029C0FE /* MemoModel.swift */; };
+		A269BACE27A54CC9006944FC /* MemoListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A237FCAF279804AB0029C0FE /* MemoListTableViewCell.swift */; };
+		A269BACF27A54CC9006944FC /* MemoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A237FC9227970A730029C0FE /* MemoListViewController.swift */; };
+		A269BAD327A54D12006944FC /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = A269BAD227A54D12006944FC /* Realm */; };
+		A269BAD527A54D12006944FC /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A269BAD427A54D12006944FC /* RealmSwift */; };
+		A269BAD927A54D7B006944FC /* FloatingPanel in Frameworks */ = {isa = PBXBuildFile; productRef = A269BAD827A54D7B006944FC /* FloatingPanel */; };
+		A269BADB27A54F80006944FC /* MemoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A237FC9227970A730029C0FE /* MemoListViewController.swift */; };
+		A269BADC27A54F80006944FC /* MemoListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A237FCAF279804AB0029C0FE /* MemoListTableViewCell.swift */; };
+		A269BADD27A54F80006944FC /* MemoListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A237FCB0279804AB0029C0FE /* MemoListTableViewCell.xib */; };
+		A269BADE27A54F80006944FC /* MemoEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A237FCA62797F6C90029C0FE /* MemoEditViewController.swift */; };
+		A269BADF27A54F80006944FC /* MemoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A237FCAD279803940029C0FE /* MemoModel.swift */; };
+		A269BAE027A54F81006944FC /* MemoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A237FC9227970A730029C0FE /* MemoListViewController.swift */; };
+		A269BAE127A54F81006944FC /* MemoListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A237FCAF279804AB0029C0FE /* MemoListTableViewCell.swift */; };
+		A269BAE227A54F81006944FC /* MemoListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A237FCB0279804AB0029C0FE /* MemoListTableViewCell.xib */; };
+		A269BAE327A54F81006944FC /* MemoEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A237FCA62797F6C90029C0FE /* MemoEditViewController.swift */; };
+		A269BAE427A54F81006944FC /* MemoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A237FCAD279803940029C0FE /* MemoModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,6 +134,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A269BAD527A54D12006944FC /* RealmSwift in Frameworks */,
+				A269BAD927A54D7B006944FC /* FloatingPanel in Frameworks */,
+				A269BAD327A54D12006944FC /* Realm in Frameworks */,
 				A269BAB127A537F4006944FC /* Intents.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -262,6 +277,11 @@
 			dependencies = (
 			);
 			name = MemoIntents;
+			packageProductDependencies = (
+				A269BAD227A54D12006944FC /* Realm */,
+				A269BAD427A54D12006944FC /* RealmSwift */,
+				A269BAD827A54D7B006944FC /* FloatingPanel */,
+			);
 			productName = MemoIntents;
 			productReference = A269BAAF27A537F4006944FC /* MemoIntents.appex */;
 			productType = "com.apple.product-type.app-extension";
@@ -319,7 +339,7 @@
 				A237FC9B27970A740029C0FE /* LaunchScreen.storyboard in Resources */,
 				A237FC9827970A740029C0FE /* Assets.xcassets in Resources */,
 				A237FC9627970A730029C0FE /* Main.storyboard in Resources */,
-				A237FCB2279804AB0029C0FE /* MemoListTableViewCell.xib in Resources */,
+				A269BACB27A54CC9006944FC /* MemoListTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,6 +348,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A269BA9827A53524006944FC /* Assets.xcassets in Resources */,
+				A269BAE227A54F81006944FC /* MemoListTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,6 +356,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A269BADD27A54F80006944FC /* MemoListTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,12 +387,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A269BACD27A54CC9006944FC /* MemoModel.swift in Sources */,
+				A269BACE27A54CC9006944FC /* MemoListTableViewCell.swift in Sources */,
 				A269BA9B27A53524006944FC /* MemoWidget.intentdefinition in Sources */,
-				A237FCAE279803940029C0FE /* MemoModel.swift in Sources */,
-				A237FCB1279804AB0029C0FE /* MemoListTableViewCell.swift in Sources */,
-				A237FC9327970A730029C0FE /* MemoListViewController.swift in Sources */,
 				A237FC8F27970A730029C0FE /* AppDelegate.swift in Sources */,
-				A237FCA72797F6C90029C0FE /* MemoEditViewController.swift in Sources */,
+				A269BACC27A54CC9006944FC /* MemoEditViewController.swift in Sources */,
+				A269BACF27A54CC9006944FC /* MemoListViewController.swift in Sources */,
 				A237FC9127970A730029C0FE /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -380,8 +402,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				A269BA9A27A53524006944FC /* MemoWidget.intentdefinition in Sources */,
-				A269BABC27A537FE006944FC /* IntentHandler.swift in Sources */,
+				A269BAE327A54F81006944FC /* MemoEditViewController.swift in Sources */,
 				A269BA9527A53523006944FC /* MemoWidget.swift in Sources */,
+				A269BAE027A54F81006944FC /* MemoListViewController.swift in Sources */,
+				A269BAE127A54F81006944FC /* MemoListTableViewCell.swift in Sources */,
+				A269BAE427A54F81006944FC /* MemoModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -390,7 +415,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				A269BABD27A53811006944FC /* MemoWidget.intentdefinition in Sources */,
+				A269BADE27A54F80006944FC /* MemoEditViewController.swift in Sources */,
 				A269BAB427A537F4006944FC /* IntentHandler.swift in Sources */,
+				A269BADB27A54F80006944FC /* MemoListViewController.swift in Sources */,
+				A269BADC27A54F80006944FC /* MemoListTableViewCell.swift in Sources */,
+				A269BADF27A54F80006944FC /* MemoModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -797,6 +826,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A237FCA8279803070029C0FE /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
+		};
+		A269BAD227A54D12006944FC /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A237FCA8279803070029C0FE /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		A269BAD427A54D12006944FC /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A237FCA8279803070029C0FE /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+		A269BAD827A54D7B006944FC /* FloatingPanel */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A237FCA327970FAF0029C0FE /* XCRemoteSwiftPackageReference "FloatingPanel" */;
+			productName = FloatingPanel;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

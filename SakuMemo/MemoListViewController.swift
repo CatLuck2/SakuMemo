@@ -8,6 +8,10 @@
 import UIKit
 import RealmSwift
 
+struct SharedRealmModel {
+    static var memoListDatas: Results<MemoModel>!
+}
+
 class MemoListViewController: UIViewController {
     
     @IBOutlet weak var listTableView: UITableView!
@@ -38,6 +42,7 @@ class MemoListViewController: UIViewController {
         do {
             let realm = try Realm()
             memoListDatas = realm.objects(MemoModel.self)
+            SharedRealmModel.memoListDatas = realm.objects(MemoModel.self)
         } catch let error as NSError {
             print(error)
         }

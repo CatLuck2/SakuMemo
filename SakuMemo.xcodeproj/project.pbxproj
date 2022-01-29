@@ -20,7 +20,54 @@
 		A237FCAE279803940029C0FE /* MemoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A237FCAD279803940029C0FE /* MemoModel.swift */; };
 		A237FCB1279804AB0029C0FE /* MemoListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A237FCAF279804AB0029C0FE /* MemoListTableViewCell.swift */; };
 		A237FCB2279804AB0029C0FE /* MemoListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A237FCB0279804AB0029C0FE /* MemoListTableViewCell.xib */; };
+		A269BA9127A53523006944FC /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A269BA4B27A52869006944FC /* WidgetKit.framework */; };
+		A269BA9227A53523006944FC /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A269BA4D27A52869006944FC /* SwiftUI.framework */; };
+		A269BA9527A53523006944FC /* MemoWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = A269BA9427A53523006944FC /* MemoWidget.swift */; };
+		A269BA9827A53524006944FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A269BA9727A53524006944FC /* Assets.xcassets */; };
+		A269BA9A27A53524006944FC /* MemoWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = A269BA9627A53523006944FC /* MemoWidget.intentdefinition */; };
+		A269BA9B27A53524006944FC /* MemoWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = A269BA9627A53523006944FC /* MemoWidget.intentdefinition */; };
+		A269BA9E27A53524006944FC /* MemoWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A269BA9027A53523006944FC /* MemoWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A269BAA327A5353C006944FC /* FloatingPanel in Frameworks */ = {isa = PBXBuildFile; productRef = A269BAA227A5353C006944FC /* FloatingPanel */; };
+		A269BAA527A5353C006944FC /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = A269BAA427A5353C006944FC /* Realm */; };
+		A269BAA727A5353C006944FC /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A269BAA627A5353C006944FC /* RealmSwift */; };
+		A269BAB127A537F4006944FC /* Intents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A269BAB027A537F4006944FC /* Intents.framework */; };
+		A269BAB427A537F4006944FC /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A269BAB327A537F4006944FC /* IntentHandler.swift */; };
+		A269BAB827A537F4006944FC /* MemoIntents.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A269BAAF27A537F4006944FC /* MemoIntents.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A269BABC27A537FE006944FC /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A269BAB327A537F4006944FC /* IntentHandler.swift */; };
+		A269BABD27A53811006944FC /* MemoWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = A269BA9627A53523006944FC /* MemoWidget.intentdefinition */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A269BA9C27A53524006944FC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A237FC8327970A730029C0FE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A269BA8F27A53523006944FC;
+			remoteInfo = MemoWidgetExtension;
+		};
+		A269BAB627A537F4006944FC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A237FC8327970A730029C0FE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A269BAAE27A537F4006944FC;
+			remoteInfo = MemoIntents;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A269BA5827A5286A006944FC /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				A269BAB827A537F4006944FC /* MemoIntents.appex in Embed App Extensions */,
+				A269BA9E27A53524006944FC /* MemoWidgetExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		A237FC8B27970A730029C0FE /* SakuMemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SakuMemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -35,6 +82,17 @@
 		A237FCAD279803940029C0FE /* MemoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoModel.swift; sourceTree = "<group>"; };
 		A237FCAF279804AB0029C0FE /* MemoListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoListTableViewCell.swift; sourceTree = "<group>"; };
 		A237FCB0279804AB0029C0FE /* MemoListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemoListTableViewCell.xib; sourceTree = "<group>"; };
+		A269BA4B27A52869006944FC /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		A269BA4D27A52869006944FC /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		A269BA9027A53523006944FC /* MemoWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MemoWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		A269BA9427A53523006944FC /* MemoWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoWidget.swift; sourceTree = "<group>"; };
+		A269BA9627A53523006944FC /* MemoWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = MemoWidget.intentdefinition; sourceTree = "<group>"; };
+		A269BA9727A53524006944FC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A269BA9927A53524006944FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A269BAAF27A537F4006944FC /* MemoIntents.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MemoIntents.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		A269BAB027A537F4006944FC /* Intents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Intents.framework; path = System/Library/Frameworks/Intents.framework; sourceTree = SDKROOT; };
+		A269BAB327A537F4006944FC /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
+		A269BAB527A537F4006944FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +106,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A269BA8D27A53523006944FC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A269BAA327A5353C006944FC /* FloatingPanel in Frameworks */,
+				A269BA9227A53523006944FC /* SwiftUI.framework in Frameworks */,
+				A269BAA527A5353C006944FC /* Realm in Frameworks */,
+				A269BAA727A5353C006944FC /* RealmSwift in Frameworks */,
+				A269BA9127A53523006944FC /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A269BAAC27A537F4006944FC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A269BAB127A537F4006944FC /* Intents.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -55,6 +133,9 @@
 			isa = PBXGroup;
 			children = (
 				A237FC8D27970A730029C0FE /* SakuMemo */,
+				A269BA9327A53523006944FC /* MemoWidget */,
+				A269BAB227A537F4006944FC /* MemoIntents */,
+				A269BA4A27A52869006944FC /* Frameworks */,
 				A237FC8C27970A730029C0FE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -63,6 +144,8 @@
 			isa = PBXGroup;
 			children = (
 				A237FC8B27970A730029C0FE /* SakuMemo.app */,
+				A269BA9027A53523006944FC /* MemoWidgetExtension.appex */,
+				A269BAAF27A537F4006944FC /* MemoIntents.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -85,6 +168,36 @@
 			path = SakuMemo;
 			sourceTree = "<group>";
 		};
+		A269BA4A27A52869006944FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A269BA4B27A52869006944FC /* WidgetKit.framework */,
+				A269BA4D27A52869006944FC /* SwiftUI.framework */,
+				A269BAB027A537F4006944FC /* Intents.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A269BA9327A53523006944FC /* MemoWidget */ = {
+			isa = PBXGroup;
+			children = (
+				A269BA9427A53523006944FC /* MemoWidget.swift */,
+				A269BA9627A53523006944FC /* MemoWidget.intentdefinition */,
+				A269BA9727A53524006944FC /* Assets.xcassets */,
+				A269BA9927A53524006944FC /* Info.plist */,
+			);
+			path = MemoWidget;
+			sourceTree = "<group>";
+		};
+		A269BAB227A537F4006944FC /* MemoIntents */ = {
+			isa = PBXGroup;
+			children = (
+				A269BAB327A537F4006944FC /* IntentHandler.swift */,
+				A269BAB527A537F4006944FC /* Info.plist */,
+			);
+			path = MemoIntents;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -96,10 +209,13 @@
 				A237FC8827970A730029C0FE /* Frameworks */,
 				A237FC8927970A730029C0FE /* Resources */,
 				A237FCA227970E650029C0FE /* ShellScript */,
+				A269BA5827A5286A006944FC /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				A269BA9D27A53524006944FC /* PBXTargetDependency */,
+				A269BAB727A537F4006944FC /* PBXTargetDependency */,
 			);
 			name = SakuMemo;
 			packageProductDependencies = (
@@ -110,6 +226,45 @@
 			productName = SakuMemo;
 			productReference = A237FC8B27970A730029C0FE /* SakuMemo.app */;
 			productType = "com.apple.product-type.application";
+		};
+		A269BA8F27A53523006944FC /* MemoWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A269BA9F27A53524006944FC /* Build configuration list for PBXNativeTarget "MemoWidgetExtension" */;
+			buildPhases = (
+				A269BA8C27A53523006944FC /* Sources */,
+				A269BA8D27A53523006944FC /* Frameworks */,
+				A269BA8E27A53523006944FC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MemoWidgetExtension;
+			packageProductDependencies = (
+				A269BAA227A5353C006944FC /* FloatingPanel */,
+				A269BAA427A5353C006944FC /* Realm */,
+				A269BAA627A5353C006944FC /* RealmSwift */,
+			);
+			productName = MemoWidgetExtension;
+			productReference = A269BA9027A53523006944FC /* MemoWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		A269BAAE27A537F4006944FC /* MemoIntents */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A269BAB927A537F4006944FC /* Build configuration list for PBXNativeTarget "MemoIntents" */;
+			buildPhases = (
+				A269BAAB27A537F4006944FC /* Sources */,
+				A269BAAC27A537F4006944FC /* Frameworks */,
+				A269BAAD27A537F4006944FC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MemoIntents;
+			productName = MemoIntents;
+			productReference = A269BAAF27A537F4006944FC /* MemoIntents.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -122,6 +277,12 @@
 				LastUpgradeCheck = 1320;
 				TargetAttributes = {
 					A237FC8A27970A730029C0FE = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+					A269BA8F27A53523006944FC = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+					A269BAAE27A537F4006944FC = {
 						CreatedOnToolsVersion = 13.2.1;
 					};
 				};
@@ -144,6 +305,8 @@
 			projectRoot = "";
 			targets = (
 				A237FC8A27970A730029C0FE /* SakuMemo */,
+				A269BA8F27A53523006944FC /* MemoWidgetExtension */,
+				A269BAAE27A537F4006944FC /* MemoIntents */,
 			);
 		};
 /* End PBXProject section */
@@ -157,6 +320,21 @@
 				A237FC9827970A740029C0FE /* Assets.xcassets in Resources */,
 				A237FC9627970A730029C0FE /* Main.storyboard in Resources */,
 				A237FCB2279804AB0029C0FE /* MemoListTableViewCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A269BA8E27A53523006944FC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A269BA9827A53524006944FC /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A269BAAD27A537F4006944FC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -187,6 +365,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A269BA9B27A53524006944FC /* MemoWidget.intentdefinition in Sources */,
 				A237FCAE279803940029C0FE /* MemoModel.swift in Sources */,
 				A237FCB1279804AB0029C0FE /* MemoListTableViewCell.swift in Sources */,
 				A237FC9327970A730029C0FE /* MemoListViewController.swift in Sources */,
@@ -196,7 +375,39 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A269BA8C27A53523006944FC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A269BA9A27A53524006944FC /* MemoWidget.intentdefinition in Sources */,
+				A269BABC27A537FE006944FC /* IntentHandler.swift in Sources */,
+				A269BA9527A53523006944FC /* MemoWidget.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A269BAAB27A537F4006944FC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A269BABD27A53811006944FC /* MemoWidget.intentdefinition in Sources */,
+				A269BAB427A537F4006944FC /* IntentHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A269BA9D27A53524006944FC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A269BA8F27A53523006944FC /* MemoWidgetExtension */;
+			targetProxy = A269BA9C27A53524006944FC /* PBXContainerItemProxy */;
+		};
+		A269BAB727A537F4006944FC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A269BAAE27A537F4006944FC /* MemoIntents */;
+			targetProxy = A269BAB627A537F4006944FC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		A237FC9427970A730029C0FE /* Main.storyboard */ = {
@@ -337,6 +548,7 @@
 		A237FCA027970A740029C0FE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -365,6 +577,7 @@
 		A237FCA127970A740029C0FE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -390,6 +603,110 @@
 			};
 			name = Release;
 		};
+		A269BAA027A53524006944FC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B7VAC4V7M7;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MemoWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MemoWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = nekokichi.SakuMemo.MemoWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A269BAA127A53524006944FC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B7VAC4V7M7;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MemoWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MemoWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = nekokichi.SakuMemo.MemoWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		A269BABA27A537F4006944FC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B7VAC4V7M7;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MemoIntents/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MemoIntents;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = nekokichi.SakuMemo.MemoIntents;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A269BABB27A537F4006944FC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B7VAC4V7M7;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MemoIntents/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MemoIntents;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = nekokichi.SakuMemo.MemoIntents;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -407,6 +724,24 @@
 			buildConfigurations = (
 				A237FCA027970A740029C0FE /* Debug */,
 				A237FCA127970A740029C0FE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A269BA9F27A53524006944FC /* Build configuration list for PBXNativeTarget "MemoWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A269BAA027A53524006944FC /* Debug */,
+				A269BAA127A53524006944FC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A269BAB927A537F4006944FC /* Build configuration list for PBXNativeTarget "MemoIntents" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A269BABA27A537F4006944FC /* Debug */,
+				A269BABB27A537F4006944FC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -444,6 +779,21 @@
 			productName = Realm;
 		};
 		A237FCAB279803070029C0FE /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A237FCA8279803070029C0FE /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+		A269BAA227A5353C006944FC /* FloatingPanel */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A237FCA327970FAF0029C0FE /* XCRemoteSwiftPackageReference "FloatingPanel" */;
+			productName = FloatingPanel;
+		};
+		A269BAA427A5353C006944FC /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A237FCA8279803070029C0FE /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		A269BAA627A5353C006944FC /* RealmSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = A237FCA8279803070029C0FE /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;

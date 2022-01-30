@@ -43,6 +43,7 @@ class MemoListViewController: UIViewController {
             let realm = try Realm()
             memoListDatas = realm.objects(MemoModel.self)
             SharedRealmModel.memoListDatas = realm.objects(MemoModel.self)
+            print(SharedRealmModel.memoListDatas)
         } catch let error as NSError {
             print(error)
         }

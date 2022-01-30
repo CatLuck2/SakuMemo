@@ -20,13 +20,11 @@
 		A269BA9527A53523006944FC /* MemoWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = A269BA9427A53523006944FC /* MemoWidget.swift */; };
 		A269BA9827A53524006944FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A269BA9727A53524006944FC /* Assets.xcassets */; };
 		A269BA9A27A53524006944FC /* MemoWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = A269BA9627A53523006944FC /* MemoWidget.intentdefinition */; };
-		A269BA9B27A53524006944FC /* MemoWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = A269BA9627A53523006944FC /* MemoWidget.intentdefinition */; };
 		A269BA9E27A53524006944FC /* MemoWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A269BA9027A53523006944FC /* MemoWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A269BAA327A5353C006944FC /* FloatingPanel in Frameworks */ = {isa = PBXBuildFile; productRef = A269BAA227A5353C006944FC /* FloatingPanel */; };
 		A269BAA527A5353C006944FC /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = A269BAA427A5353C006944FC /* Realm */; };
 		A269BAA727A5353C006944FC /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A269BAA627A5353C006944FC /* RealmSwift */; };
 		A269BAB127A537F4006944FC /* Intents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A269BAB027A537F4006944FC /* Intents.framework */; };
-		A269BAB427A537F4006944FC /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A269BAB327A537F4006944FC /* IntentHandler.swift */; };
 		A269BAB827A537F4006944FC /* MemoIntents.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A269BAAF27A537F4006944FC /* MemoIntents.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A269BABD27A53811006944FC /* MemoWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = A269BA9627A53523006944FC /* MemoWidget.intentdefinition */; };
 		A269BACB27A54CC9006944FC /* MemoListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A237FCB0279804AB0029C0FE /* MemoListTableViewCell.xib */; };
@@ -47,6 +45,8 @@
 		A269BAE227A54F81006944FC /* MemoListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A237FCB0279804AB0029C0FE /* MemoListTableViewCell.xib */; };
 		A269BAE327A54F81006944FC /* MemoEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A237FCA62797F6C90029C0FE /* MemoEditViewController.swift */; };
 		A269BAE427A54F81006944FC /* MemoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A237FCAD279803940029C0FE /* MemoModel.swift */; };
+		A269BAE627A57785006944FC /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A269BAB327A537F4006944FC /* IntentHandler.swift */; };
+		A269BAE727A57786006944FC /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A269BAB327A537F4006944FC /* IntentHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -389,7 +389,6 @@
 			files = (
 				A269BACD27A54CC9006944FC /* MemoModel.swift in Sources */,
 				A269BACE27A54CC9006944FC /* MemoListTableViewCell.swift in Sources */,
-				A269BA9B27A53524006944FC /* MemoWidget.intentdefinition in Sources */,
 				A237FC8F27970A730029C0FE /* AppDelegate.swift in Sources */,
 				A269BACC27A54CC9006944FC /* MemoEditViewController.swift in Sources */,
 				A269BACF27A54CC9006944FC /* MemoListViewController.swift in Sources */,
@@ -405,6 +404,7 @@
 				A269BAE327A54F81006944FC /* MemoEditViewController.swift in Sources */,
 				A269BA9527A53523006944FC /* MemoWidget.swift in Sources */,
 				A269BAE027A54F81006944FC /* MemoListViewController.swift in Sources */,
+				A269BAE627A57785006944FC /* IntentHandler.swift in Sources */,
 				A269BAE127A54F81006944FC /* MemoListTableViewCell.swift in Sources */,
 				A269BAE427A54F81006944FC /* MemoModel.swift in Sources */,
 			);
@@ -416,9 +416,9 @@
 			files = (
 				A269BABD27A53811006944FC /* MemoWidget.intentdefinition in Sources */,
 				A269BADE27A54F80006944FC /* MemoEditViewController.swift in Sources */,
-				A269BAB427A537F4006944FC /* IntentHandler.swift in Sources */,
 				A269BADB27A54F80006944FC /* MemoListViewController.swift in Sources */,
 				A269BADC27A54F80006944FC /* MemoListTableViewCell.swift in Sources */,
+				A269BAE727A57786006944FC /* IntentHandler.swift in Sources */,
 				A269BADF27A54F80006944FC /* MemoModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -11,6 +11,7 @@ import Intents
 
 /// Provider
 struct Provider: IntentTimelineProvider {
+    typealias Intent = ConfigurationIntent
     
     func placeholder(in context: Context) -> SimpleEntry {
         SimpleEntry(date: Date(), configuration: ConfigurationIntent())
@@ -23,6 +24,8 @@ struct Provider: IntentTimelineProvider {
 
     func getTimeline(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
         var entries: [SimpleEntry] = []
+        
+        print(configuration.memoType?.identifier)
 
         // Generate a timeline consisting of five entries an hour apart, starting from the current date.
         let currentDate = Date()

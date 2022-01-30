@@ -61,10 +61,30 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
-		<key>WidgetExtension.xcscheme_^#shared#^_</key>
+		<key>WidgetExtension.xcscheme</key>
 		<dict>
+			<key>isShown</key>
+			<false/>
 			<key>orderHint</key>
 			<integer>5</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>A237FC8A27970A730029C0FE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A269BA8F27A53523006944FC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A269BAAE27A537F4006944FC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

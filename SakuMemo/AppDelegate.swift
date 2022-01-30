@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -13,6 +14,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+//        
+//        do {
+//            let realm = try Realm()
+//            SharedRealmModel.memoListDatas = realm.objects(MemoModel.self)
+//        } catch let error as NSError {
+//            print(error)
+//        }
+//        
         // Override point for customization after application launch.
         return true
     }

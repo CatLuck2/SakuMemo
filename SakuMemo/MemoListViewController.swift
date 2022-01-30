@@ -7,6 +7,7 @@
 
 import UIKit
 import RealmSwift
+import WidgetKit
 
 class MemoListViewController: UIViewController {
 
@@ -35,6 +36,7 @@ class MemoListViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         memoListDatas = MemoModel.all()
+        WidgetCenter.shared.reloadAllTimelines()
         listTableView.reloadData()
     }
 
@@ -92,10 +94,9 @@ extension MemoListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             do {
-                let realm = try Realm()
-                let selectedMemoObject = realm.objects(MemoModel.self).filter("id == \(memoListDatas[indexPath.row].id)")
-                try realm.write {
-                    realm.delete(selectedMemoObject)
+                let selectedMemoObject = MemoModel.all().filter("id == \(memoListDatas[indexPath.row].id)")
+                try MemoModel.realm!.write {
+                    MemoModel.realm!.delete(selectedMemoObject)
                 }
             } catch let error as NSError {
                 print(error)

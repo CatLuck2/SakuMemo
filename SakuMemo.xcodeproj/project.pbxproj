@@ -105,6 +105,9 @@
 		A269BAB027A537F4006944FC /* Intents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Intents.framework; path = System/Library/Frameworks/Intents.framework; sourceTree = SDKROOT; };
 		A269BAB327A537F4006944FC /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
 		A269BAB527A537F4006944FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A269BAE827A63C18006944FC /* SakuMemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SakuMemo.entitlements; sourceTree = "<group>"; };
+		A269BAE927A63CBB006944FC /* MemoWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MemoWidgetExtension.entitlements; sourceTree = "<group>"; };
+		A269BAEA27A647B0006944FC /* MemoIntents.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MemoIntents.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +171,7 @@
 		A237FC8D27970A730029C0FE /* SakuMemo */ = {
 			isa = PBXGroup;
 			children = (
+				A269BAE827A63C18006944FC /* SakuMemo.entitlements */,
 				A237FC8E27970A730029C0FE /* AppDelegate.swift */,
 				A237FC9027970A730029C0FE /* SceneDelegate.swift */,
 				A237FCAD279803940029C0FE /* MemoModel.swift */,
@@ -196,6 +200,7 @@
 		A269BA9327A53523006944FC /* MemoWidget */ = {
 			isa = PBXGroup;
 			children = (
+				A269BAE927A63CBB006944FC /* MemoWidgetExtension.entitlements */,
 				A269BA9427A53523006944FC /* MemoWidget.swift */,
 				A269BA9627A53523006944FC /* MemoWidget.intentdefinition */,
 				A269BA9727A53524006944FC /* Assets.xcassets */,
@@ -207,6 +212,7 @@
 		A269BAB227A537F4006944FC /* MemoIntents */ = {
 			isa = PBXGroup;
 			children = (
+				A269BAEA27A647B0006944FC /* MemoIntents.entitlements */,
 				A269BAB327A537F4006944FC /* IntentHandler.swift */,
 				A269BAB527A537F4006944FC /* Info.plist */,
 			);
@@ -580,6 +586,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SakuMemo/SakuMemo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = B7VAC4V7M7;
@@ -609,6 +616,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SakuMemo/SakuMemo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = B7VAC4V7M7;
@@ -637,6 +645,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = MemoWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = B7VAC4V7M7;
@@ -664,6 +673,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = MemoWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = B7VAC4V7M7;
@@ -689,6 +699,7 @@
 		A269BABA27A537F4006944FC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = MemoIntents/MemoIntents.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = B7VAC4V7M7;
@@ -714,6 +725,7 @@
 		A269BABB27A537F4006944FC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = MemoIntents/MemoIntents.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = B7VAC4V7M7;

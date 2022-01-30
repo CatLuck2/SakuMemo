@@ -18,7 +18,6 @@ class MemoEditViewControlelr: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if selectedMemoModel != nil {
-            // Data->NSMutableAttributedString
             do {
                 let data = try NSKeyedUnarchiver.unarchivedObject(ofClass: NSMutableAttributedString.self, from: selectedMemoModel!.sentence)
                 memoTextView.attributedText = data
@@ -38,8 +37,7 @@ class MemoEditViewControlelr: UIViewController {
         super.viewWillDisappear(animated)
         if selectedMemoModel != nil {
             do {
-                let realm = try Realm()
-                try realm.write {
+                try MemoModel.realm!.write {
                     // NSMutableAttributedString->Data
                     let data = try NSKeyedArchiver.archivedData(withRootObject: NSMutableAttributedString(attributedString: memoTextView.attributedText), requiringSecureCoding: false)
                     selectedMemoModel!.sentence = data
@@ -51,13 +49,10 @@ class MemoEditViewControlelr: UIViewController {
             do {
                 let newMemoModel = MemoModel()
                 newMemoModel.title = "タイトル"
-                // NSMutableAttributedString->Data
                 let data = try NSKeyedArchiver.archivedData(withRootObject: NSMutableAttributedString(attributedString: memoTextView.attributedText), requiringSecureCoding: false)
                 newMemoModel.sentence = data
-                
-                let realm = try Realm()
-                try realm.write {
-                    realm.add(newMemoModel, update: .modified)
+                try MemoModel.realm!.write {
+                    MemoModel.realm!.add(newMemoModel, update: .modified)
                 }
             } catch let error as NSError {
                 print(error)
@@ -112,7 +107,6 @@ class MemoEditViewControlelr: UIViewController {
         let selectedAttributedText = NSMutableAttributedString(attributedString: memoTextView.attributedText)
         selectedAttributedText.enumerateAttribute(.font, in: selectedRange!) { result, resultRange, _ in
             if let result = result as? UIFont {
-                print(result.fontDescriptor.object(forKey: .face))
                 if result.fontDescriptor.object(forKey: .face)! as? String == "Regular" {
                     selectedAttributedText.addAttribute(.font, value:UIFont.italicSystemFont(ofSize: selectedFontsize!), range: selectedRange!)
                 } else {

@@ -8,10 +8,6 @@
 import UIKit
 import RealmSwift
 
-struct SharedRealmModel {
-    static var memoListDatas: Results<MemoModel>!
-}
-
 class MemoListViewController: UIViewController {
     
     @IBOutlet weak var listTableView: UITableView!
@@ -40,10 +36,7 @@ class MemoListViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         do {
-            let realm = try Realm()
-            memoListDatas = realm.objects(MemoModel.self)
-            SharedRealmModel.memoListDatas = realm.objects(MemoModel.self)
-            print(SharedRealmModel.memoListDatas)
+            memoListDatas = MemoModel.all()
         } catch let error as NSError {
             print(error)
         }
@@ -84,7 +77,6 @@ extension MemoListViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MemoListTableViewCellID", for: indexPath) as? MemoListTableViewCell else {
             return UITableViewCell()
         }
-        //Data->NSMutableAttributedString
         do {
             let data = try NSKeyedUnarchiver.unarchivedObject(ofClass: NSMutableAttributedString.self, from: memoListDatas[indexPath.row].sentence)
             cell.setMemoDatasToCell(title: memoListDatas[indexPath.row].title, sentence: data!)

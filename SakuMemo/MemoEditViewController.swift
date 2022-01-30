@@ -9,12 +9,12 @@ import UIKit
 import RealmSwift
 
 class MemoEditViewControlelr: UIViewController {
-    
+
     @IBOutlet weak var memoTextView: UITextView!
     private var selectedMemoModel: MemoModel?
     private var selectedFontsize: CGFloat? = 14.0
     private var selectedRange: NSRange? = NSRange(location: 0, length: 0)
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if selectedMemoModel != nil {
@@ -26,13 +26,13 @@ class MemoEditViewControlelr: UIViewController {
             }
         }
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         memoTextView.delegate = self
         setButtonsInKeyboard()
     }
-    
+
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         if selectedMemoModel != nil {
@@ -59,16 +59,16 @@ class MemoEditViewControlelr: UIViewController {
             }
         }
     }
-    
+
     func setSelectedMemoModel(memoModel: MemoModel) {
         self.selectedMemoModel = memoModel
     }
-    
+
     func setButtonsInKeyboard() {
         let keyboardBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 40))
         keyboardBar.barStyle = UIBarStyle.default
         keyboardBar.sizeToFit()
-        
+
         let spacer = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: self, action: nil)
 
         let bold = UIBarButtonItem(title: "B", style: .plain, target: self, action: #selector(boldAction))
@@ -83,7 +83,6 @@ class MemoEditViewControlelr: UIViewController {
         let strikeThrough = UIBarButtonItem(title: "-", style: .plain, target: self, action: #selector(strikeThroughAction))
         strikeThrough.tintColor = .systemBlue
 
-        
         keyboardBar.items = [spacer, bold, spacer, italic, spacer, underline, spacer, strikeThrough, spacer]
 
         memoTextView.inputAccessoryView = keyboardBar
@@ -91,54 +90,54 @@ class MemoEditViewControlelr: UIViewController {
 
     @objc func boldAction() {
         let selectedAttributedText = NSMutableAttributedString(attributedString: memoTextView.attributedText)
-        selectedAttributedText.enumerateAttribute(.font, in: selectedRange!) { result, resultRange, _ in
+        selectedAttributedText.enumerateAttribute(.font, in: selectedRange!) { result, _, _ in
             if let result = result as? UIFont {
                 if result.fontDescriptor.object(forKey: .face)! as? String == "Regular" {
-                    selectedAttributedText.addAttribute(.font, value:UIFont.boldSystemFont(ofSize: selectedFontsize!), range: selectedRange!)
+                    selectedAttributedText.addAttribute(.font, value: UIFont.boldSystemFont(ofSize: selectedFontsize!), range: selectedRange!)
                 } else {
-                    selectedAttributedText.addAttribute(.font, value:UIFont.systemFont(ofSize: selectedFontsize!), range: selectedRange!)
+                    selectedAttributedText.addAttribute(.font, value: UIFont.systemFont(ofSize: selectedFontsize!), range: selectedRange!)
                 }
             }
         }
         memoTextView.attributedText = selectedAttributedText
     }
-    
+
     @objc func italicAction() {
         let selectedAttributedText = NSMutableAttributedString(attributedString: memoTextView.attributedText)
-        selectedAttributedText.enumerateAttribute(.font, in: selectedRange!) { result, resultRange, _ in
+        selectedAttributedText.enumerateAttribute(.font, in: selectedRange!) { result, _, _ in
             if let result = result as? UIFont {
                 if result.fontDescriptor.object(forKey: .face)! as? String == "Regular" {
-                    selectedAttributedText.addAttribute(.font, value:UIFont.italicSystemFont(ofSize: selectedFontsize!), range: selectedRange!)
+                    selectedAttributedText.addAttribute(.font, value: UIFont.italicSystemFont(ofSize: selectedFontsize!), range: selectedRange!)
                 } else {
-                    selectedAttributedText.addAttribute(.font, value:UIFont.systemFont(ofSize: selectedFontsize!), range: selectedRange!)
+                    selectedAttributedText.addAttribute(.font, value: UIFont.systemFont(ofSize: selectedFontsize!), range: selectedRange!)
                 }
             }
         }
         memoTextView.attributedText = selectedAttributedText
     }
-    
+
     @objc func underlineAction() {
         let selectedAttributedText = NSMutableAttributedString(attributedString: memoTextView.attributedText)
-        selectedAttributedText.enumerateAttribute(.underlineStyle, in: selectedRange!) { result, resultRange, _ in
+        selectedAttributedText.enumerateAttribute(.underlineStyle, in: selectedRange!) { result, _, _ in
             // 既にAttributeが付与されているか
-            if let _ = result as? Int {
+            if result != nil {
                 selectedAttributedText.removeAttribute(.underlineStyle, range: selectedRange!)
             } else {
-                selectedAttributedText.addAttribute(.underlineStyle, value:1, range: selectedRange!)
+                selectedAttributedText.addAttribute(.underlineStyle, value: 1, range: selectedRange!)
             }
         }
         // textViewにAttributedStringを付与
         memoTextView.attributedText = selectedAttributedText
     }
-    
+
     @objc func strikeThroughAction() {
         let selectedAttributedText = NSMutableAttributedString(attributedString: memoTextView.attributedText)
-        selectedAttributedText.enumerateAttribute(.strikethroughStyle, in: selectedRange!) { result, resultRange, _ in
+        selectedAttributedText.enumerateAttribute(.strikethroughStyle, in: selectedRange!) { result, _, _ in
             // 既にAttributeが付与されているか
-            if let _ = result as? Int {
+            if result != nil {
                 selectedAttributedText.removeAttribute(.strikethroughStyle, range: selectedRange!)
             } else {
-                selectedAttributedText.addAttribute(.strikethroughStyle, value:1, range: selectedRange!)
+                selectedAttributedText.addAttribute(.strikethroughStyle, value: 1, range: selectedRange!)
             }
         }
         // textViewにAttributedStringを付与
@@ -155,8 +154,8 @@ extension MemoEditViewControlelr: UITextViewDelegate {
             return
         } else {
             let strIndex = textView.text.startIndex
-            guard let startIndex = textView.text.index(strIndex, offsetBy: location, limitedBy: textView.text.endIndex),
-                      let endIndex = textView.text.index(strIndex, offsetBy: location+length-1, limitedBy: textView.text.endIndex) else {
+            guard let _ = textView.text.index(strIndex, offsetBy: location, limitedBy: textView.text.endIndex),
+                  let _ = textView.text.index(strIndex, offsetBy: location+length-1, limitedBy: textView.text.endIndex) else {
                 return
             }
             let selectedAttributedText = NSMutableAttributedString(attributedString: memoTextView.attributedText)

@@ -12,17 +12,17 @@ import Intents
 /// Provider
 struct Provider: IntentTimelineProvider {
     typealias Intent = ConfigurationIntent
-    
+
     func placeholder(in context: Context) -> MemoEntry {
         MemoEntry.previewData
     }
 
-    func getSnapshot(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (MemoEntry) -> ()) {
+    func getSnapshot(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (MemoEntry) -> Void) {
         let entry = MemoEntry.previewData
         completion(entry)
     }
 
-    func getTimeline(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (Timeline<MemoEntry>) -> ()) {
+    func getTimeline(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (Timeline<MemoEntry>) -> Void) {
         var entries: [MemoEntry] = []
         entries.append(MemoEntry(date: Date(), text: configuration.memoType!.displayString))
 
@@ -41,21 +41,21 @@ struct MemoEntry: TimelineEntry {
     let text: String
 }
 extension MemoEntry {
-    static let previewData = MemoEntry (
+    static let previewData = MemoEntry(
         date: Date(),
         text: "テキスト"
     )
 }
 
 /// View
-struct MemoWidgetEntryView : View {
+struct MemoWidgetEntryView: View {
     let memoEntry: MemoEntry
 
     var body: some View {
         Text(memoEntry.text)
             .padding(.vertical, 10)
             .padding(.horizontal, 20)
-        
+
     }
 }
 

@@ -7,9 +7,8 @@
 
 import Intents
 
+class IntentHandler: INExtension, ConfigurationIntentHandling {
 
-class IntentHandler: INExtension, ConfigurationIntentHandling  {
-    
     func provideMemoTypeOptionsCollection(for intent: ConfigurationIntent, with completion: @escaping (INObjectCollection<MemoType>?, Error?) -> Void) {
 
         let memos: [MemoType] = MemoModel.texts().map { text in
@@ -22,10 +21,10 @@ class IntentHandler: INExtension, ConfigurationIntentHandling  {
 
         completion(collection, nil)
     }
-    
+
     override func handler(for intent: INIntent) -> Any {
-        
+
         return self
     }
-    
+
 }

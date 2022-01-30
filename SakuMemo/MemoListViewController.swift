@@ -9,13 +9,12 @@ import UIKit
 import RealmSwift
 
 class MemoListViewController: UIViewController {
-    
+
     @IBOutlet weak var listTableView: UITableView!
     @IBOutlet weak var editListBarButton: UIBarButtonItem!
     @IBOutlet weak var addMemoButton: UIButton!
     private var memoListDatas: Results<MemoModel>!
-    
-    
+
     @IBAction func editListBarButton(_ sender: UIBarButtonItem) {
         if listTableView.isEditing == true {
             editListBarButton.title = "編集"
@@ -25,31 +24,27 @@ class MemoListViewController: UIViewController {
             listTableView.isEditing = true
         }
     }
-    
+
     @IBAction func addMemoButton(_ sender: UIButton) {
         guard let memoEditViewController = self.storyboard?.instantiateViewController(withIdentifier: "segueToMemoEditViewController") as? MemoEditViewControlelr else {
             return
         }
         self.navigationController?.pushViewController(memoEditViewController, animated: true)
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        do {
-            memoListDatas = MemoModel.all()
-        } catch let error as NSError {
-            print(error)
-        }
+        memoListDatas = MemoModel.all()
         listTableView.reloadData()
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         listTableView.delegate = self
         listTableView.dataSource = self
         listTableView.register(UINib(nibName: "MemoListTableViewCell", bundle: nil), forCellReuseIdentifier: "MemoListTableViewCellID")
         listTableView.layer.cornerRadius = 10
-        
+
         addMemoButton.layer.cornerRadius = 40
         addMemoButton.layer.backgroundColor = UIColor.white.cgColor
         addMemoButton.layer.shadowOpacity = 0.6
@@ -68,11 +63,11 @@ extension MemoListViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return memoListDatas.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MemoListTableViewCellID", for: indexPath) as? MemoListTableViewCell else {
             return UITableViewCell()
@@ -85,7 +80,7 @@ extension MemoListViewController: UITableViewDelegate, UITableViewDataSource {
         }
         return cell
     }
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let memoEditViewController = self.storyboard?.instantiateViewController(withIdentifier: "segueToMemoEditViewController") as? MemoEditViewControlelr else {
             return
@@ -93,7 +88,7 @@ extension MemoListViewController: UITableViewDelegate, UITableViewDataSource {
         memoEditViewController.setSelectedMemoModel(memoModel: memoListDatas[indexPath.row])
         self.navigationController?.pushViewController(memoEditViewController, animated: true)
     }
-    
+
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             do {

@@ -32,10 +32,6 @@ struct Provider: IntentTimelineProvider {
 }
 
 /// Entry
-struct SimpleEntry: TimelineEntry {
-    let date: Date
-    let configuration: ConfigurationIntent
-}
 struct MemoEntry: TimelineEntry {
     var date: Date
     let text: String

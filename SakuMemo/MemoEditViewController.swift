@@ -7,6 +7,7 @@
 
 import UIKit
 import RealmSwift
+import WidgetKit
 
 class MemoEditViewControlelr: UIViewController {
 
@@ -41,6 +42,9 @@ class MemoEditViewControlelr: UIViewController {
                     // NSMutableAttributedString->Data
                     let data = try NSKeyedArchiver.archivedData(withRootObject: NSMutableAttributedString(attributedString: memoTextView.attributedText), requiringSecureCoding: false)
                     selectedMemoModel!.sentence = data
+                }
+                DispatchQueue(label: "serial").sync {
+                    WidgetCenter.shared.reloadAllTimelines()
                 }
             } catch let error as NSError {
                 print(error)

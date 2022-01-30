@@ -7,7 +7,6 @@
 
 import UIKit
 import RealmSwift
-import WidgetKit
 
 class MemoListViewController: UIViewController {
 
@@ -36,7 +35,6 @@ class MemoListViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         memoListDatas = MemoModel.all()
-        WidgetCenter.shared.reloadAllTimelines()
         listTableView.reloadData()
     }
 

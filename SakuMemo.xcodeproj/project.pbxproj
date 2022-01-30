@@ -106,8 +106,8 @@
 		A269BAB327A537F4006944FC /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
 		A269BAB527A537F4006944FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A269BAE827A63C18006944FC /* SakuMemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SakuMemo.entitlements; sourceTree = "<group>"; };
-		A269BAE927A63CBB006944FC /* MemoWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MemoWidgetExtension.entitlements; sourceTree = "<group>"; };
 		A269BAEA27A647B0006944FC /* MemoIntents.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MemoIntents.entitlements; sourceTree = "<group>"; };
+		A2E39EAD27A67B1F00FE2F10 /* MemoWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MemoWidgetExtension.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +150,7 @@
 		A237FC8227970A730029C0FE = {
 			isa = PBXGroup;
 			children = (
+				A2E39EAD27A67B1F00FE2F10 /* MemoWidgetExtension.entitlements */,
 				A237FC8D27970A730029C0FE /* SakuMemo */,
 				A269BA9327A53523006944FC /* MemoWidget */,
 				A269BAB227A537F4006944FC /* MemoIntents */,
@@ -200,7 +201,6 @@
 		A269BA9327A53523006944FC /* MemoWidget */ = {
 			isa = PBXGroup;
 			children = (
-				A269BAE927A63CBB006944FC /* MemoWidgetExtension.entitlements */,
 				A269BA9427A53523006944FC /* MemoWidget.swift */,
 				A269BA9627A53523006944FC /* MemoWidget.intentdefinition */,
 				A269BA9727A53524006944FC /* Assets.xcassets */,

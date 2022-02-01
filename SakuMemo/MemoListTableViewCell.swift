@@ -9,7 +9,6 @@ import UIKit
 
 class MemoListTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var sentenceLabel: UILabel!
 
     override func awakeFromNib() {
@@ -20,6 +19,10 @@ class MemoListTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
 
+    /*
+     セルのラベルに値を代入
+     セルの処理を当ファイルで完結するため
+     */
     func setMemoDatasToCell(sentence: NSMutableAttributedString) {
         sentenceLabel.attributedText = sentence
     }

@@ -15,6 +15,9 @@ class MemoListViewController: UIViewController {
     @IBOutlet weak var addMemoButton: UIButton!
     private var memoListDatas: Results<MemoModel>!
 
+    /*
+     listTableViewの編集モードを切り替える
+     */
     @IBAction func editListBarButton(_ sender: UIBarButtonItem) {
         if listTableView.isEditing == true {
             editListBarButton.title = "編集"
@@ -25,6 +28,9 @@ class MemoListViewController: UIViewController {
         }
     }
 
+    /*
+     MemoEditViewControllerへ遷移
+     */
     @IBAction func addMemoButton(_ sender: UIButton) {
         guard let memoEditViewController = self.storyboard?.instantiateViewController(withIdentifier: "segueToMemoEditViewController") as? MemoEditViewControlelr else {
             return
@@ -32,12 +38,18 @@ class MemoListViewController: UIViewController {
         self.navigationController?.pushViewController(memoEditViewController, animated: true)
     }
 
+    /*
+     Realmのデータ取得、listTableViewの更新
+     */
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         memoListDatas = MemoModel.all()
         listTableView.reloadData()
     }
 
+    /*
+     listTableViewの設定、addMemoButtonのレイアウト設定
+     */
     override func viewDidLoad() {
         super.viewDidLoad()
         listTableView.delegate = self
@@ -53,6 +65,9 @@ class MemoListViewController: UIViewController {
         addMemoButton.layer.shadowOffset = CGSize(width: 2.0, height: 1.0)
     }
 
+    /*
+     listTableViewで編集モードを扱うのに必要
+     */
     override func setEditing(_ editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: true)
     }
@@ -81,6 +96,10 @@ extension MemoListViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
 
+    /*
+     MemoEditViewControllerへ遷移
+     MemoEditViewControllerへ、タップしたセルのindexPath.rowに該当するデータ（MemoModel）、を渡す
+     */
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let memoEditViewController = self.storyboard?.instantiateViewController(withIdentifier: "segueToMemoEditViewController") as? MemoEditViewControlelr else {
             return
@@ -89,6 +108,10 @@ extension MemoListViewController: UITableViewDelegate, UITableViewDataSource {
         self.navigationController?.pushViewController(memoEditViewController, animated: true)
     }
 
+    /*
+     セルを削除時の処理
+     idで該当するデータを探し、Realmから削除
+     */
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             do {

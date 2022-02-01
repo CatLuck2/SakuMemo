@@ -16,6 +16,9 @@ class MemoEditViewControlelr: UIViewController {
     private var selectedFontsize: CGFloat? = 14.0
     private var selectedRange: NSRange? = NSRange(location: 0, length: 0)
 
+    /*
+     selectedMemoModelから、sentence（NSMutableAttributedString）を取り出す
+     */
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if selectedMemoModel != nil {
@@ -34,6 +37,11 @@ class MemoEditViewControlelr: UIViewController {
         setButtonsInKeyboard()
     }
 
+    /*
+     MemoEditViewControllerを閉じる時
+     selectedMemoModelがnilでない→編集→データの更新
+     selectedMemoModelがnilである→新規追加→データの新規追加
+     */
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         if selectedMemoModel != nil {
@@ -63,10 +71,17 @@ class MemoEditViewControlelr: UIViewController {
         }
     }
 
+    /*
+     MemoListViewControllerから、選択したMemoModelを受け取る
+     */
     func setSelectedMemoModel(memoModel: MemoModel) {
         self.selectedMemoModel = memoModel
     }
 
+    /*
+     キーボード上部にタブバーを設置
+     文字を装飾するためのボタンを4つをタブバー内に設置
+     */
     func setButtonsInKeyboard() {
         let keyboardBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 40))
         keyboardBar.barStyle = UIBarStyle.default
@@ -91,6 +106,9 @@ class MemoEditViewControlelr: UIViewController {
         memoTextView.inputAccessoryView = keyboardBar
     }
 
+    /*
+     太字
+     */
     @objc func boldAction() {
         let selectedAttributedText = NSMutableAttributedString(attributedString: memoTextView.attributedText)
         selectedAttributedText.enumerateAttribute(.font, in: selectedRange!) { result, _, _ in
@@ -105,6 +123,9 @@ class MemoEditViewControlelr: UIViewController {
         memoTextView.attributedText = selectedAttributedText
     }
 
+    /*
+     斜体
+     */
     @objc func italicAction() {
         let selectedAttributedText = NSMutableAttributedString(attributedString: memoTextView.attributedText)
         selectedAttributedText.enumerateAttribute(.font, in: selectedRange!) { result, _, _ in
@@ -119,6 +140,9 @@ class MemoEditViewControlelr: UIViewController {
         memoTextView.attributedText = selectedAttributedText
     }
 
+    /*
+     下線
+     */
     @objc func underlineAction() {
         let selectedAttributedText = NSMutableAttributedString(attributedString: memoTextView.attributedText)
         selectedAttributedText.enumerateAttribute(.underlineStyle, in: selectedRange!) { result, _, _ in
@@ -133,6 +157,9 @@ class MemoEditViewControlelr: UIViewController {
         memoTextView.attributedText = selectedAttributedText
     }
 
+    /*
+     取り消し線
+     */
     @objc func strikeThroughAction() {
         let selectedAttributedText = NSMutableAttributedString(attributedString: memoTextView.attributedText)
         selectedAttributedText.enumerateAttribute(.strikethroughStyle, in: selectedRange!) { result, _, _ in
@@ -149,6 +176,9 @@ class MemoEditViewControlelr: UIViewController {
 
 }
 
+/*
+ 
+ */
 extension MemoEditViewControlelr: UITextViewDelegate {
     func textViewDidChangeSelection(_ textView: UITextView) {
         let location = textView.selectedRange.location

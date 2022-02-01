@@ -20,8 +20,7 @@ class MemoListTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
 
-    func setMemoDatasToCell(title: String, sentence: NSMutableAttributedString) {
-        titleLabel.text = title
+    func setMemoDatasToCell(sentence: NSMutableAttributedString) {
         sentenceLabel.attributedText = sentence
     }
 

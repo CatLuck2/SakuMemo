@@ -52,7 +52,6 @@ class MemoEditViewControlelr: UIViewController {
         } else {
             do {
                 let newMemoModel = MemoModel()
-                newMemoModel.title = "タイトル"
                 let data = try NSKeyedArchiver.archivedData(withRootObject: NSMutableAttributedString(attributedString: memoTextView.attributedText), requiringSecureCoding: false)
                 newMemoModel.sentence = data
                 try MemoModel.realm!.write {

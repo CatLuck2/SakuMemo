@@ -177,7 +177,7 @@ class MemoEditViewControlelr: UIViewController {
 }
 
 /*
- 
+
  */
 extension MemoEditViewControlelr: UITextViewDelegate {
     func textViewDidChangeSelection(_ textView: UITextView) {

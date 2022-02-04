@@ -46,6 +46,7 @@ extension MemoModel {
     }
 
     /*
+     Realmのデータから、プロパティsentenceのみを取り出し、[String]に格納
      Realmのデータを[String]で使用するため
      */
     static func texts() -> [String] {

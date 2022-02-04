@@ -22,6 +22,9 @@ struct Provider: IntentTimelineProvider {
         completion(entry)
     }
 
+    /*
+     ”ウィジェットを編集”で選択したテキストを表示
+     */
     func getTimeline(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (Timeline<MemoEntry>) -> Void) {
         var entries: [MemoEntry] = []
         entries.append(MemoEntry(date: Date(), text: configuration.memoType!.displayString))
@@ -31,6 +34,9 @@ struct Provider: IntentTimelineProvider {
     }
 }
 
+/*
+ ウィジェットの表示で扱うオブジェクト
+ */
 /// Entry
 struct MemoEntry: TimelineEntry {
     var date: Date
@@ -43,6 +49,9 @@ extension MemoEntry {
     )
 }
 
+/*
+ ウィジェットのView
+ */
 /// View
 struct MemoWidgetEntryView: View {
     let memoEntry: MemoEntry

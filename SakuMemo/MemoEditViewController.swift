@@ -12,8 +12,19 @@ import WidgetKit
 class MemoEditViewControlelr: UIViewController {
 
     @IBOutlet weak var memoTextView: UITextView!
+    /*
+     MemoListViewControllerで選択したMemoModel
+     */
     private var selectedMemoModel: MemoModel?
+
+    /*
+     フォントサイズを変更しないので、標準サイズを用意。
+     */
     private var selectedFontsize: CGFloat? = 14.0
+
+    /*
+     MemoEditViewControllerのmemoTextViewで選択した範囲。
+     */
     private var selectedRange: NSRange? = NSRange(location: 0, length: 0)
 
     /*
@@ -111,6 +122,11 @@ class MemoEditViewControlelr: UIViewController {
      */
     @objc func boldAction() {
         let selectedAttributedText = NSMutableAttributedString(attributedString: memoTextView.attributedText)
+        /*
+         ①選択した文字列のフォント情報を読み取る
+         ②Regularなら太字、それ以外ならsystemFont、に装飾
+         理由：太字かを判定するには、標準フォントであるRegularで判断するしかないから
+         */
         selectedAttributedText.enumerateAttribute(.font, in: selectedRange!) { result, _, _ in
             if let result = result as? UIFont {
                 if result.fontDescriptor.object(forKey: .face)! as? String == "Regular" {
@@ -180,17 +196,27 @@ class MemoEditViewControlelr: UIViewController {
 
  */
 extension MemoEditViewControlelr: UITextViewDelegate {
+    /*
+     選択した文字列の範囲、フォントサイズを取得
+     */
     func textViewDidChangeSelection(_ textView: UITextView) {
+        /*
+         始点、長さ
+         */
         let location = textView.selectedRange.location
         let length = textView.selectedRange.length
+        /*
+         lengthが0未満　→　未選択
+         lengthが1以上　→　1文字以上を選択
+         */
         if length <= 0 {
             return
         } else {
-            let strIndex = textView.text.startIndex
-            guard let _ = textView.text.index(strIndex, offsetBy: location, limitedBy: textView.text.endIndex),
-                  let _ = textView.text.index(strIndex, offsetBy: location+length-1, limitedBy: textView.text.endIndex) else {
-                return
-            }
+            //            let strIndex = textView.text.startIndex
+            //            guard let _ = textView.text.index(strIndex, offsetBy: location, limitedBy: textView.text.endIndex),
+            //                  let _ = textView.text.index(strIndex, offsetBy: location+length-1, limitedBy: textView.text.endIndex) else {
+            //                return
+            //            }
             let selectedAttributedText = NSMutableAttributedString(attributedString: memoTextView.attributedText)
             guard let fontsizeOfAttributeString = selectedAttributedText.attribute(.font, at: 0, effectiveRange: nil) as? UIFont else {
                 return

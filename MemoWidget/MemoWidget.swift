@@ -16,14 +16,14 @@ struct Provider: IntentTimelineProvider {
     func placeholder(in context: Context) -> MemoEntry {
         MemoEntry.previewData
     }
-
+    
     func getSnapshot(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (MemoEntry) -> Void) {
         let entry = MemoEntry.previewData
         completion(entry)
     }
 
     /*
-     ”ウィジェットを編集”で選択したテキストを表示
+     ”ウィジェットを編集”で、ユーザーが選択した値を表示
      */
     func getTimeline(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (Timeline<MemoEntry>) -> Void) {
         var entries: [MemoEntry] = []
@@ -36,6 +36,7 @@ struct Provider: IntentTimelineProvider {
 
 /*
  ウィジェットの表示で扱うオブジェクト
+ TimelineEntryでは、dateが必須
  */
 /// Entry
 struct MemoEntry: TimelineEntry {
@@ -82,5 +83,8 @@ struct MemoWidget: Widget {
 struct MemoWidget_Previews: PreviewProvider {
     static var previews: some View {
         MemoWidgetEntryView(memoEntry: .previewData)
+            .previewContext(WidgetPreviewContext(family: .systemSmall))
+        MemoWidgetEntryView(memoEntry: .previewData)
+            .previewContext(WidgetPreviewContext(family: .systemMedium))
     }
 }

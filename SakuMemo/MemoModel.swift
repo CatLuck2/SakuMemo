@@ -22,10 +22,14 @@ class MemoModel: Object {
 
 extension MemoModel {
     /*
-     AppGroup
-     IntentHandlerでRealmのデータを扱うため
+     AppGroup:異なるアプリ（TARGET）間でデータを共有
+     IntentHandlerでRealmのデータを使用するため
      */
     static var realm: Realm? {
+        /*
+         /Users/nekokichi/Library/Developer/CoreSimulator/Devices/xxxx/data/Containers/Shared/AppGroup/xxxx/default.realm、
+         に保存
+         */
         let container = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.Nekokichi.WidgetWithRealm")!
         let realmURL = container.appendingPathComponent("default.realm")
         let config = Realm.Configuration(fileURL: realmURL, schemaVersion: 1)

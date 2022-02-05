@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MemoListTableViewCell: UITableViewCell {
+final class MemoListTableViewCell: UITableViewCell {
 
     @IBOutlet weak var sentenceLabel: UILabel!
 

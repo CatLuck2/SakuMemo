@@ -8,11 +8,11 @@
 import UIKit
 import RealmSwift
 
-class MemoListViewController: UIViewController {
+final class MemoListViewController: UIViewController {
 
-    @IBOutlet weak var listTableView: UITableView!
-    @IBOutlet weak var editListBarButton: UIBarButtonItem!
-    @IBOutlet weak var addMemoButton: UIButton!
+    @IBOutlet weak private var listTableView: UITableView!
+    @IBOutlet weak private var editListBarButton: UIBarButtonItem!
+    @IBOutlet weak private var addMemoButton: UIButton!
     private var memoListDatas: Results<MemoModel>!
 
     /*

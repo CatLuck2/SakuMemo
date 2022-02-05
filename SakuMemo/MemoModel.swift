@@ -11,7 +11,7 @@ import RealmSwift
 /*
  Realmで扱うクラス
  */
-class MemoModel: Object {
+final class MemoModel: Object {
     @objc dynamic var id: Int = Int(arc4random_uniform(10000))
     @objc dynamic var sentence: Data = Data()
 

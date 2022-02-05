@@ -9,9 +9,9 @@ import UIKit
 import RealmSwift
 import WidgetKit
 
-class MemoEditViewControlelr: UIViewController {
+final class MemoEditViewControlelr: UIViewController {
 
-    @IBOutlet weak var memoTextView: UITextView!
+    @IBOutlet weak private var memoTextView: UITextView!
     /*
      MemoListViewControllerで選択したMemoModel
      */
@@ -93,7 +93,7 @@ class MemoEditViewControlelr: UIViewController {
      キーボード上部にタブバーを設置
      文字を装飾するためのボタンを4つをタブバー内に設置
      */
-    func setButtonsInKeyboard() {
+    private func setButtonsInKeyboard() {
         let keyboardBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 40))
         keyboardBar.barStyle = UIBarStyle.default
         keyboardBar.sizeToFit()
@@ -120,7 +120,7 @@ class MemoEditViewControlelr: UIViewController {
     /*
      太字
      */
-    @objc func boldAction() {
+    @objc private func boldAction() {
         let selectedAttributedText = NSMutableAttributedString(attributedString: memoTextView.attributedText)
         /*
          ①選択した文字列のフォント情報を読み取る
@@ -142,7 +142,7 @@ class MemoEditViewControlelr: UIViewController {
     /*
      斜体
      */
-    @objc func italicAction() {
+    @objc private func italicAction() {
         let selectedAttributedText = NSMutableAttributedString(attributedString: memoTextView.attributedText)
         selectedAttributedText.enumerateAttribute(.font, in: selectedRange!) { result, _, _ in
             if let result = result as? UIFont {
@@ -159,7 +159,7 @@ class MemoEditViewControlelr: UIViewController {
     /*
      下線
      */
-    @objc func underlineAction() {
+    @objc private func underlineAction() {
         let selectedAttributedText = NSMutableAttributedString(attributedString: memoTextView.attributedText)
         selectedAttributedText.enumerateAttribute(.underlineStyle, in: selectedRange!) { result, _, _ in
             // 既にAttributeが付与されているか
@@ -176,7 +176,7 @@ class MemoEditViewControlelr: UIViewController {
     /*
      取り消し線
      */
-    @objc func strikeThroughAction() {
+    @objc private func strikeThroughAction() {
         let selectedAttributedText = NSMutableAttributedString(attributedString: memoTextView.attributedText)
         selectedAttributedText.enumerateAttribute(.strikethroughStyle, in: selectedRange!) { result, _, _ in
             // 既にAttributeが付与されているか

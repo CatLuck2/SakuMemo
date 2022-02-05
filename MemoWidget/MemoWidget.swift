@@ -16,7 +16,7 @@ struct Provider: IntentTimelineProvider {
     func placeholder(in context: Context) -> MemoEntry {
         MemoEntry.previewData
     }
-    
+
     func getSnapshot(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (MemoEntry) -> Void) {
         let entry = MemoEntry.previewData
         completion(entry)

@@ -64,10 +64,10 @@
             </objects>
             <point key="canvasLocation" x="876.81159420289862" y="83.705357142857139"/>
         </scene>
-        <!--Memo Edit View Controlelr-->
+        <!--Memo Edit View Controller-->
         <scene sceneID="3Sv-bY-c9z">
             <objects>
-                <viewController storyboardIdentifier="segueToMemoEditViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="C68-RJ-Bdc" customClass="MemoEditViewControlelr" customModule="SakuMemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="segueToMemoEditViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="C68-RJ-Bdc" customClass="MemoEditViewController" customModule="SakuMemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dTn-fU-WoZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -91,7 +91,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="nNw-yt-slp"/>
                     <connections>
-                        <outlet property="memoTextView" destination="DOh-Eb-9KI" id="qSL-eZ-IQq"/>
+                        <outlet property="memoTextView" destination="DOh-Eb-9KI" id="CRq-Wq-Zrv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gkS-Jo-cip" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -9,7 +9,7 @@ import UIKit
 import RealmSwift
 import WidgetKit
 
-final class MemoEditViewControlelr: UIViewController {
+final class MemoEditViewController: UIViewController {
 
     @IBOutlet weak private var memoTextView: UITextView!
     /*
@@ -192,10 +192,13 @@ final class MemoEditViewControlelr: UIViewController {
 
 }
 
-/*
+extension MemoEditViewController {
+    enum Identifier: String {
+        case segueFromList = "segueToMemoEditViewController"
+    }
+}
 
- */
-extension MemoEditViewControlelr: UITextViewDelegate {
+extension MemoEditViewController: UITextViewDelegate {
     /*
      選択した文字列の範囲、フォントサイズを取得
      */

@@ -32,7 +32,7 @@ final class MemoListViewController: UIViewController {
      MemoEditViewControllerへ遷移
      */
     @IBAction func addMemoButton(_ sender: UIButton) {
-        guard let memoEditViewController = self.storyboard?.instantiateViewController(withIdentifier: "segueToMemoEditViewController") as? MemoEditViewControlelr else {
+        guard let memoEditViewController = self.storyboard?.instantiateViewController(withIdentifier: MemoEditViewController.Identifier.segueFromList.rawValue) as? MemoEditViewController else {
             return
         }
         self.navigationController?.pushViewController(memoEditViewController, animated: true)
@@ -55,7 +55,6 @@ final class MemoListViewController: UIViewController {
         listTableView.delegate = self
         listTableView.dataSource = self
         listTableView.register(UINib(nibName: MemoListTableViewCell.Identifier.nibName.rawValue, bundle: nil), forCellReuseIdentifier: MemoListTableViewCell.Identifier.forCellReuseIdentifier.rawValue)
-        //        listTableView.register(UINib(nibName: "MemoListTableViewCell", bundle: nil), forCellReuseIdentifier: "MemoListTableViewCellID")
         listTableView.layer.cornerRadius = 10
 
         addMemoButton.layer.cornerRadius = 40
@@ -102,7 +101,7 @@ extension MemoListViewController: UITableViewDelegate, UITableViewDataSource {
      MemoEditViewControllerへ、タップしたセルのindexPath.rowに該当するデータ（MemoModel）、を渡す
      */
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let memoEditViewController = self.storyboard?.instantiateViewController(withIdentifier: "segueToMemoEditViewController") as? MemoEditViewControlelr else {
+        guard let memoEditViewController = self.storyboard?.instantiateViewController(withIdentifier: MemoEditViewController.Identifier.segueFromList.rawValue) as? MemoEditViewController else {
             return
         }
         memoEditViewController.setSelectedMemoModel(memoModel: memoListDatas[indexPath.row])

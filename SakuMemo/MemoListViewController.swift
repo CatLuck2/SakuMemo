@@ -54,7 +54,8 @@ final class MemoListViewController: UIViewController {
         super.viewDidLoad()
         listTableView.delegate = self
         listTableView.dataSource = self
-        listTableView.register(UINib(nibName: "MemoListTableViewCell", bundle: nil), forCellReuseIdentifier: "MemoListTableViewCellID")
+        listTableView.register(UINib(nibName: MemoListTableViewCell.Identifier.nibName.rawValue, bundle: nil), forCellReuseIdentifier: MemoListTableViewCell.Identifier.forCellReuseIdentifier.rawValue)
+        //        listTableView.register(UINib(nibName: "MemoListTableViewCell", bundle: nil), forCellReuseIdentifier: "MemoListTableViewCellID")
         listTableView.layer.cornerRadius = 10
 
         addMemoButton.layer.cornerRadius = 40
@@ -84,7 +85,7 @@ extension MemoListViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MemoListTableViewCellID", for: indexPath) as? MemoListTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: MemoListTableViewCell.Identifier.forCellReuseIdentifier.rawValue, for: indexPath) as? MemoListTableViewCell else {
             return UITableViewCell()
         }
         do {

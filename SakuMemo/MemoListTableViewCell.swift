@@ -9,7 +9,7 @@ import UIKit
 
 final class MemoListTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var sentenceLabel: UILabel!
+    @IBOutlet weak private var sentenceLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,5 +26,11 @@ final class MemoListTableViewCell: UITableViewCell {
     func setMemoDatasToCell(sentence: NSMutableAttributedString) {
         sentenceLabel.attributedText = sentence
     }
+}
 
+extension MemoListTableViewCell {
+    enum Identifier: String {
+        case nibName = "MemoListTableViewCell"
+        case forCellReuseIdentifier = "MemoListTableViewCellID"
+    }
 }

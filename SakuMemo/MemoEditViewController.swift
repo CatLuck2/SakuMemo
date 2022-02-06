@@ -212,11 +212,6 @@ extension MemoEditViewControlelr: UITextViewDelegate {
         if length <= 0 {
             return
         } else {
-            //            let strIndex = textView.text.startIndex
-            //            guard let _ = textView.text.index(strIndex, offsetBy: location, limitedBy: textView.text.endIndex),
-            //                  let _ = textView.text.index(strIndex, offsetBy: location+length-1, limitedBy: textView.text.endIndex) else {
-            //                return
-            //            }
             let selectedAttributedText = NSMutableAttributedString(attributedString: memoTextView.attributedText)
             guard let fontsizeOfAttributeString = selectedAttributedText.attribute(.font, at: 0, effectiveRange: nil) as? UIFont else {
                 return

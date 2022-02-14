@@ -32,13 +32,14 @@ final class MemoEditViewController: UIViewController {
      */
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if selectedMemoModel != nil {
-            do {
-                let data = try NSKeyedUnarchiver.unarchivedObject(ofClass: NSMutableAttributedString.self, from: selectedMemoModel!.sentence)
-                memoTextView.attributedText = data
-            } catch let error as NSError {
-                print(error)
-            }
+        guard let selectedMemoModel = selectedMemoModel else {
+            return
+        }
+        do {
+            let data = try NSKeyedUnarchiver.unarchivedObject(ofClass: NSMutableAttributedString.self, from: selectedMemoModel.sentence)
+            memoTextView.attributedText = data
+        } catch let error as NSError {
+            print(error)
         }
     }
 
@@ -46,6 +47,9 @@ final class MemoEditViewController: UIViewController {
         super.viewDidLoad()
         memoTextView.delegate = self
         setButtonsInKeyboard()
+        for char in memoTextView.attributedText.string {
+            print(char)
+        }
     }
 
     /*
@@ -203,6 +207,17 @@ extension MemoEditViewController: UITextViewDelegate {
      選択した文字列の範囲、フォントサイズを取得
      */
     func textViewDidChangeSelection(_ textView: UITextView) {
+        let selectedAttributedText = NSMutableAttributedString(attributedString: memoTextView.attributedText)
+        selectedAttributedText.enumerateAttribute(.font, in: selectedRange!) { result, _, _ in
+            if let result = result as? UIFont {
+                if result.fontDescriptor.object(forKey: .face)! as? String == "Regular" {
+                    selectedAttributedText.addAttribute(.font, value: UIFont.boldSystemFont(ofSize: selectedFontsize!), range: selectedRange!)
+                } else {
+                    selectedAttributedText.addAttribute(.font, value: UIFont.systemFont(ofSize: selectedFontsize!), range: selectedRange!)
+                }
+            }
+        }
+
         /*
          始点、長さ
          */

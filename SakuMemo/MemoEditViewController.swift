@@ -195,12 +195,6 @@ extension MemoEditViewController: UITextViewDelegate {
      選択した文字列の範囲、フォントサイズを取得
      */
     func textViewDidChangeSelection(_ textView: UITextView) {
-        let selectedAttributedText = NSMutableAttributedString(attributedString: memoTextView.attributedText)
-        selectedAttributedText.enumerateAttribute(.font, in: selectedRange!) { result, _, _ in
-            if let result = result as? UIFont {
-            }
-        }
-        memoTextView.attributedText = selectedAttributedText
         /*
          始点、長さ
          */

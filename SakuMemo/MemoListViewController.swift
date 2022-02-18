@@ -44,24 +44,6 @@ final class MemoListViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         memoListDatas = MemoModel.all()
-        //        if memoListDatas.isEmpty == false {
-        //            for element in memoListDatas {
-        //                do {
-        //                    let attributeString = try NSKeyedUnarchiver.unarchivedObject(ofClass: NSMutableAttributedString.self, from: element.sentence)
-        //                    attributeString!.enumerateAttribute(.font, in: NSRange(location: 0, length: attributeString!.length)) { result, range, _ in
-        //                        // 既にAttributeが付与されているか
-        //                        if let attrFont = result as? UIFont {
-        //                            var newDescriptor = attrFont.fontDescriptor.withFamily("Hiragino Kaku Gothic Interface")
-        //                            // ・・・中略
-        //                            let scaledFont = UIFont(descriptor: newDescriptor, size: attrFont.pointSize)
-        //                            attributeString!.addAttribute(.font, value: scaledFont, range: range)
-        //                        }
-        //                    }
-        //                } catch let error as NSError {
-        //                    print(error)
-        //                }
-        //            }
-        //        }
         listTableView.reloadData()
     }
 

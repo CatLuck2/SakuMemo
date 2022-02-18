@@ -37,6 +37,15 @@ final class MemoEditViewController: UIViewController {
         }
         do {
             let data = try NSKeyedUnarchiver.unarchivedObject(ofClass: NSMutableAttributedString.self, from: selectedMemoModel.sentence)
+            data!.enumerateAttribute(.font, in: NSRange(location: 0, length: data!.length)) { result, range, _ in
+                // 既にAttributeが付与されているか
+                if let attrFont = result as? UIFont {
+                    var newDescriptor = attrFont.fontDescriptor.withFamily("Hiragino Kaku Gothic Interface")
+                    // ・・・中略
+                    let scaledFont = UIFont(descriptor: newDescriptor, size: attrFont.pointSize)
+                    data!.addAttribute(.font, value: scaledFont, range: range)
+                }
+            }
             memoTextView.attributedText = data
         } catch let error as NSError {
             print(error)
@@ -69,6 +78,7 @@ final class MemoEditViewController: UIViewController {
                 print(error)
             }
         } else {
+
             do {
                 let newMemoModel = MemoModel()
                 let data = try NSKeyedArchiver.archivedData(withRootObject: NSMutableAttributedString(attributedString: memoTextView.attributedText), requiringSecureCoding: false)

@@ -47,9 +47,6 @@ final class MemoEditViewController: UIViewController {
         super.viewDidLoad()
         memoTextView.delegate = self
         setButtonsInKeyboard()
-        for char in memoTextView.attributedText.string {
-            print(char)
-        }
     }
 
     /*
@@ -62,7 +59,6 @@ final class MemoEditViewController: UIViewController {
         if selectedMemoModel != nil {
             do {
                 try MemoModel.realm!.write {
-                    // NSMutableAttributedString->Data
                     let data = try NSKeyedArchiver.archivedData(withRootObject: NSMutableAttributedString(attributedString: memoTextView.attributedText), requiringSecureCoding: false)
                     selectedMemoModel!.sentence = data
                 }
@@ -133,11 +129,7 @@ final class MemoEditViewController: UIViewController {
          */
         selectedAttributedText.enumerateAttribute(.font, in: selectedRange!) { result, _, _ in
             if let result = result as? UIFont {
-                if result.fontDescriptor.object(forKey: .face)! as? String == "Regular" {
-                    selectedAttributedText.addAttribute(.font, value: UIFont.boldSystemFont(ofSize: selectedFontsize!), range: selectedRange!)
-                } else {
-                    selectedAttributedText.addAttribute(.font, value: UIFont.systemFont(ofSize: selectedFontsize!), range: selectedRange!)
-                }
+                selectedAttributedText.addAttribute(.font, value: UIFont.boldSystemFont(ofSize: selectedFontsize!), range: selectedRange!)
             }
         }
         memoTextView.attributedText = selectedAttributedText
@@ -150,11 +142,7 @@ final class MemoEditViewController: UIViewController {
         let selectedAttributedText = NSMutableAttributedString(attributedString: memoTextView.attributedText)
         selectedAttributedText.enumerateAttribute(.font, in: selectedRange!) { result, _, _ in
             if let result = result as? UIFont {
-                if result.fontDescriptor.object(forKey: .face)! as? String == "Regular" {
-                    selectedAttributedText.addAttribute(.font, value: UIFont.italicSystemFont(ofSize: selectedFontsize!), range: selectedRange!)
-                } else {
-                    selectedAttributedText.addAttribute(.font, value: UIFont.systemFont(ofSize: selectedFontsize!), range: selectedRange!)
-                }
+                selectedAttributedText.addAttribute(.font, value: UIFont.italicSystemFont(ofSize: selectedFontsize!), range: selectedRange!)
             }
         }
         memoTextView.attributedText = selectedAttributedText
@@ -210,14 +198,9 @@ extension MemoEditViewController: UITextViewDelegate {
         let selectedAttributedText = NSMutableAttributedString(attributedString: memoTextView.attributedText)
         selectedAttributedText.enumerateAttribute(.font, in: selectedRange!) { result, _, _ in
             if let result = result as? UIFont {
-                if result.fontDescriptor.object(forKey: .face)! as? String == "Regular" {
-                    selectedAttributedText.addAttribute(.font, value: UIFont.boldSystemFont(ofSize: selectedFontsize!), range: selectedRange!)
-                } else {
-                    selectedAttributedText.addAttribute(.font, value: UIFont.systemFont(ofSize: selectedFontsize!), range: selectedRange!)
-                }
             }
         }
-
+        memoTextView.attributedText = selectedAttributedText
         /*
          始点、長さ
          */

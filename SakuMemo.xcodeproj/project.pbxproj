@@ -47,6 +47,9 @@
 		A269BAE427A54F81006944FC /* MemoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A237FCAD279803940029C0FE /* MemoModel.swift */; };
 		A269BAE627A57785006944FC /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A269BAB327A537F4006944FC /* IntentHandler.swift */; };
 		A269BAE727A57786006944FC /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A269BAB327A537F4006944FC /* IntentHandler.swift */; };
+		A270C23D27C0A7C9006210DD /* SymbolicTraitsModifer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A270C23C27C0A7C9006210DD /* SymbolicTraitsModifer.swift */; };
+		A2EC19A227C0AAA5002D22DD /* SymbolicTraitsModifer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A270C23C27C0A7C9006210DD /* SymbolicTraitsModifer.swift */; };
+		A2EC19A327C0AAA6002D22DD /* SymbolicTraitsModifer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A270C23C27C0A7C9006210DD /* SymbolicTraitsModifer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +110,7 @@
 		A269BAB527A537F4006944FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A269BAE827A63C18006944FC /* SakuMemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SakuMemo.entitlements; sourceTree = "<group>"; };
 		A269BAEA27A647B0006944FC /* MemoIntents.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MemoIntents.entitlements; sourceTree = "<group>"; };
+		A270C23C27C0A7C9006210DD /* SymbolicTraitsModifer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolicTraitsModifer.swift; sourceTree = "<group>"; };
 		A2E39EAD27A67B1F00FE2F10 /* MemoWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MemoWidgetExtension.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -180,6 +184,7 @@
 				A237FCB0279804AB0029C0FE /* MemoListTableViewCell.xib */,
 				A237FC9227970A730029C0FE /* MemoListViewController.swift */,
 				A237FCA62797F6C90029C0FE /* MemoEditViewController.swift */,
+				A270C23C27C0A7C9006210DD /* SymbolicTraitsModifer.swift */,
 				A237FC9427970A730029C0FE /* Main.storyboard */,
 				A237FC9727970A740029C0FE /* Assets.xcassets */,
 				A237FC9927970A740029C0FE /* LaunchScreen.storyboard */,
@@ -393,6 +398,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A270C23D27C0A7C9006210DD /* SymbolicTraitsModifer.swift in Sources */,
 				A269BACD27A54CC9006944FC /* MemoModel.swift in Sources */,
 				A269BACE27A54CC9006944FC /* MemoListTableViewCell.swift in Sources */,
 				A237FC8F27970A730029C0FE /* AppDelegate.swift in Sources */,
@@ -411,6 +417,7 @@
 				A269BA9527A53523006944FC /* MemoWidget.swift in Sources */,
 				A269BAE027A54F81006944FC /* MemoListViewController.swift in Sources */,
 				A269BAE627A57785006944FC /* IntentHandler.swift in Sources */,
+				A2EC19A327C0AAA6002D22DD /* SymbolicTraitsModifer.swift in Sources */,
 				A269BAE127A54F81006944FC /* MemoListTableViewCell.swift in Sources */,
 				A269BAE427A54F81006944FC /* MemoModel.swift in Sources */,
 			);
@@ -420,6 +427,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2EC19A227C0AAA5002D22DD /* SymbolicTraitsModifer.swift in Sources */,
 				A269BABD27A53811006944FC /* MemoWidget.intentdefinition in Sources */,
 				A269BADE27A54F80006944FC /* MemoEditViewController.swift in Sources */,
 				A269BADB27A54F80006944FC /* MemoListViewController.swift in Sources */,

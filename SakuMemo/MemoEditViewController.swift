@@ -36,17 +36,30 @@ final class MemoEditViewController: UIViewController {
             return
         }
         do {
-            let data = try NSKeyedUnarchiver.unarchivedObject(ofClass: NSMutableAttributedString.self, from: selectedMemoModel.sentence)
-            data!.enumerateAttribute(.font, in: NSRange(location: 0, length: data!.length)) { result, range, _ in
-                // 既にAttributeが付与されているか
+            // HTML -> AttributedString
+            let encoded = selectedMemoModel.attributes.data(using: String.Encoding.utf8)!
+            let attributedOptions: [NSMutableAttributedString.DocumentReadingOptionKey: Any] = [.documentType: NSMutableAttributedString.DocumentType.html]
+            let attributedTxt = try NSMutableAttributedString(data: encoded, options: attributedOptions, documentAttributes: nil)
+            attributedTxt.enumerateAttribute(.font, in: NSRange(location: 0, length: attributedTxt.length)) { result, range, _ in
                 if let attrFont = result as? UIFont {
-                    var newDescriptor = attrFont.fontDescriptor.withFamily("Hiragino Kaku Gothic Interface")
-                    // ・・・中略
-                    let scaledFont = UIFont(descriptor: newDescriptor, size: attrFont.pointSize)
-                    data!.addAttribute(.font, value: scaledFont, range: range)
+                    let traits: UIFontDescriptor.SymbolicTraits = attrFont.fontDescriptor.symbolicTraits
+                    let newDescriptor = attrFont.fontDescriptor.withFamily("Hiragino Kaku Gothic Interface")
+
+                    let hiraginoFont = UIFont(descriptor: newDescriptor, size: attrFont.pointSize)
+                    attributedTxt.addAttribute(.font, value: hiraginoFont, range: range)
+
+                    if (traits.rawValue & UIFontDescriptor.SymbolicTraits.traitBold.rawValue) != 0 {
+                        let boldFont = hiraginoFont.stm.bold().build()
+                        attributedTxt.addAttribute(.font, value: boldFont, range: range)
+                    }
+
+                    if (traits.rawValue & UIFontDescriptor.SymbolicTraits.traitItalic.rawValue) != 0 {
+                        let italicFont = hiraginoFont.stm.italic().build()
+                        attributedTxt.addAttribute(.font, value: italicFont, range: range)
+                    }
                 }
             }
-            memoTextView.attributedText = data
+            memoTextView.attributedText = attributedTxt
         } catch let error as NSError {
             print(error)
         }
@@ -67,9 +80,14 @@ final class MemoEditViewController: UIViewController {
         super.viewWillDisappear(animated)
         if selectedMemoModel != nil {
             do {
+                let data = try NSKeyedArchiver.archivedData(withRootObject: NSMutableAttributedString(attributedString: memoTextView.attributedText), requiringSecureCoding: false)
+                let documentAttributes: [NSMutableAttributedString.DocumentAttributeKey: Any]!
+                documentAttributes = [.documentType: NSMutableAttributedString.DocumentType.html, .characterEncoding: String.Encoding.utf8.rawValue]
+                let htmlData = try memoTextView.attributedText.data(from: NSRange(location: 0, length: memoTextView.attributedText.length),
+                                                                    documentAttributes: documentAttributes)
                 try MemoModel.realm!.write {
-                    let data = try NSKeyedArchiver.archivedData(withRootObject: NSMutableAttributedString(attributedString: memoTextView.attributedText), requiringSecureCoding: false)
                     selectedMemoModel!.sentence = data
+                    selectedMemoModel!.attributes = String(data: htmlData, encoding: .utf8) ?? ""
                 }
                 DispatchQueue(label: "serial").sync {
                     WidgetCenter.shared.reloadAllTimelines()
@@ -82,7 +100,13 @@ final class MemoEditViewController: UIViewController {
             do {
                 let newMemoModel = MemoModel()
                 let data = try NSKeyedArchiver.archivedData(withRootObject: NSMutableAttributedString(attributedString: memoTextView.attributedText), requiringSecureCoding: false)
+                // AttributeString -> HTML
+                let documentAttributes: [NSMutableAttributedString.DocumentAttributeKey: Any]!
+                documentAttributes = [.documentType: NSMutableAttributedString.DocumentType.html, .characterEncoding: String.Encoding.utf8.rawValue]
+                let htmlData = try memoTextView.attributedText.data(from: NSRange(location: 0, length: memoTextView.attributedText.length),
+                                                                    documentAttributes: documentAttributes)
                 newMemoModel.sentence = data
+                newMemoModel.attributes = String(data: htmlData, encoding: .utf8) ?? ""
                 try MemoModel.realm!.write {
                     MemoModel.realm!.add(newMemoModel, update: .modified)
                 }

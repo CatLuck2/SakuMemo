@@ -88,17 +88,30 @@ extension MemoListViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         do {
-            let data = try NSKeyedUnarchiver.unarchivedObject(ofClass: NSMutableAttributedString.self, from: memoListDatas[indexPath.row].sentence)
-            data!.enumerateAttribute(.font, in: NSRange(location: 0, length: data!.length)) { result, range, _ in
-                // 既にAttributeが付与されているか
+            // Fontをヒラギノ角ゴに変換
+            let encoded = memoListDatas[indexPath.row].attributes.data(using: String.Encoding.utf8)!
+            let attributedOptions: [NSMutableAttributedString.DocumentReadingOptionKey: Any] = [.documentType: NSMutableAttributedString.DocumentType.html]
+            let attributedTxt = try NSMutableAttributedString(data: encoded, options: attributedOptions, documentAttributes: nil)
+            attributedTxt.enumerateAttribute(.font, in: NSRange(location: 0, length: attributedTxt.length)) { result, range, _ in
                 if let attrFont = result as? UIFont {
-                    var newDescriptor = attrFont.fontDescriptor.withFamily("Hiragino Kaku Gothic Interface")
-                    // ・・・中略
-                    let scaledFont = UIFont(descriptor: newDescriptor, size: attrFont.pointSize)
-                    data!.addAttribute(.font, value: scaledFont, range: range)
+                    let traits: UIFontDescriptor.SymbolicTraits = attrFont.fontDescriptor.symbolicTraits
+                    let newDescriptor = attrFont.fontDescriptor.withFamily("Hiragino Kaku Gothic Interface")
+
+                    let hiraginoFont = UIFont(descriptor: newDescriptor, size: attrFont.pointSize)
+                    attributedTxt.addAttribute(.font, value: hiraginoFont, range: range)
+
+                    if (traits.rawValue & UIFontDescriptor.SymbolicTraits.traitBold.rawValue) != 0 {
+                        let boldFont = hiraginoFont.stm.bold().build()
+                        attributedTxt.addAttribute(.font, value: boldFont, range: range)
+                    }
+
+                    if (traits.rawValue & UIFontDescriptor.SymbolicTraits.traitItalic.rawValue) != 0 {
+                        let italicFont = hiraginoFont.stm.italic().build()
+                        attributedTxt.addAttribute(.font, value: italicFont, range: range)
+                    }
                 }
             }
-            cell.setMemoDatasToCell(sentence: data!)
+            cell.setMemoDatasToCell(sentence: attributedTxt)
         } catch let error as NSError {
             print(error)
         }

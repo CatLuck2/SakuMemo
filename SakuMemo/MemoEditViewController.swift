@@ -163,7 +163,7 @@ final class MemoEditViewController: UIViewController {
          */
         selectedAttributedText.enumerateAttribute(.font, in: selectedRange!) { result, _, _ in
             if let result = result as? UIFont {
-                selectedAttributedText.addAttribute(.font, value: UIFont.boldSystemFont(ofSize: selectedFontsize!), range: selectedRange!)
+                selectedAttributedText.addAttribute(.font, value: result.stm.bold().build(), range: selectedRange!)
             }
         }
         memoTextView.attributedText = selectedAttributedText
@@ -176,7 +176,7 @@ final class MemoEditViewController: UIViewController {
         let selectedAttributedText = NSMutableAttributedString(attributedString: memoTextView.attributedText)
         selectedAttributedText.enumerateAttribute(.font, in: selectedRange!) { result, _, _ in
             if let result = result as? UIFont {
-                selectedAttributedText.addAttribute(.font, value: UIFont.italicSystemFont(ofSize: selectedFontsize!), range: selectedRange!)
+                selectedAttributedText.addAttribute(.font, value: result.stm.italic().build(), range: selectedRange!)
             }
         }
         memoTextView.attributedText = selectedAttributedText

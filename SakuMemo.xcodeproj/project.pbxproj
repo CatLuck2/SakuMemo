@@ -15,6 +15,7 @@
 		A237FCA527970FAF0029C0FE /* FloatingPanel in Frameworks */ = {isa = PBXBuildFile; productRef = A237FCA427970FAF0029C0FE /* FloatingPanel */; };
 		A237FCAA279803070029C0FE /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = A237FCA9279803070029C0FE /* Realm */; };
 		A237FCAC279803070029C0FE /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A237FCAB279803070029C0FE /* RealmSwift */; };
+		A258C87427C59FB100969D39 /* MemoWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = A269BA9427A53523006944FC /* MemoWidget.swift */; };
 		A269BA9127A53523006944FC /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A269BA4B27A52869006944FC /* WidgetKit.framework */; };
 		A269BA9227A53523006944FC /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A269BA4D27A52869006944FC /* SwiftUI.framework */; };
 		A269BA9527A53523006944FC /* MemoWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = A269BA9427A53523006944FC /* MemoWidget.swift */; };
@@ -108,10 +109,8 @@
 		A269BAB027A537F4006944FC /* Intents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Intents.framework; path = System/Library/Frameworks/Intents.framework; sourceTree = SDKROOT; };
 		A269BAB327A537F4006944FC /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
 		A269BAB527A537F4006944FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A269BAE827A63C18006944FC /* SakuMemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SakuMemo.entitlements; sourceTree = "<group>"; };
 		A269BAEA27A647B0006944FC /* MemoIntents.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MemoIntents.entitlements; sourceTree = "<group>"; };
 		A270C23C27C0A7C9006210DD /* SymbolicTraitsModifer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolicTraitsModifer.swift; sourceTree = "<group>"; };
-		A2E39EAD27A67B1F00FE2F10 /* MemoWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MemoWidgetExtension.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,7 +153,6 @@
 		A237FC8227970A730029C0FE = {
 			isa = PBXGroup;
 			children = (
-				A2E39EAD27A67B1F00FE2F10 /* MemoWidgetExtension.entitlements */,
 				A237FC8D27970A730029C0FE /* SakuMemo */,
 				A269BA9327A53523006944FC /* MemoWidget */,
 				A269BAB227A537F4006944FC /* MemoIntents */,
@@ -176,7 +174,6 @@
 		A237FC8D27970A730029C0FE /* SakuMemo */ = {
 			isa = PBXGroup;
 			children = (
-				A269BAE827A63C18006944FC /* SakuMemo.entitlements */,
 				A237FC8E27970A730029C0FE /* AppDelegate.swift */,
 				A237FC9027970A730029C0FE /* SceneDelegate.swift */,
 				A237FCAD279803940029C0FE /* MemoModel.swift */,
@@ -432,6 +429,7 @@
 				A269BADE27A54F80006944FC /* MemoEditViewController.swift in Sources */,
 				A269BADB27A54F80006944FC /* MemoListViewController.swift in Sources */,
 				A269BADC27A54F80006944FC /* MemoListTableViewCell.swift in Sources */,
+				A258C87427C59FB100969D39 /* MemoWidget.swift in Sources */,
 				A269BAE727A57786006944FC /* IntentHandler.swift in Sources */,
 				A269BADF27A54F80006944FC /* MemoModel.swift in Sources */,
 			);
@@ -594,7 +592,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = SakuMemo/SakuMemo.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1.0.1;
 				DEVELOPMENT_TEAM = B7VAC4V7M7;
@@ -624,7 +622,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = SakuMemo/SakuMemo.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1.0.1;
 				DEVELOPMENT_TEAM = B7VAC4V7M7;
@@ -653,7 +651,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_ENTITLEMENTS = MemoWidgetExtension.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = B7VAC4V7M7;
@@ -681,7 +679,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_ENTITLEMENTS = MemoWidgetExtension.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = B7VAC4V7M7;

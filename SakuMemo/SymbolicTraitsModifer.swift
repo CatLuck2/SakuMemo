@@ -17,12 +17,20 @@ final class SymbolicTraitsModifer {
     }
 
     func bold() -> SymbolicTraitsModifer {
-        traits.insert(.traitBold)
+        if traits.contains(.traitBold) == true {
+            traits.remove(.traitBold)
+        } else {
+            traits.insert(.traitBold)
+        }
         return self
     }
 
     func italic() -> SymbolicTraitsModifer {
-        traits.insert(.traitItalic)
+        if traits.contains(.traitItalic) == true {
+            traits.remove(.traitItalic)
+        } else {
+            traits.insert(.traitItalic)
+        }
         return self
     }
 

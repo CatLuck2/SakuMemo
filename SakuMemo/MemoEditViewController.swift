@@ -36,18 +36,27 @@ final class MemoEditViewController: UIViewController {
             return
         }
         do {
+            let patterns: String = "[0-9A-Za-z]"
+            let regex = try NSRegularExpression(pattern: patterns)
             // HTML -> AttributedString
             let encoded = selectedMemoModel.attributes.data(using: String.Encoding.utf8)!
             let attributedOptions: [NSMutableAttributedString.DocumentReadingOptionKey: Any] = [.documentType: NSMutableAttributedString.DocumentType.html]
             let attributedTxt = try NSMutableAttributedString(data: encoded, options: attributedOptions, documentAttributes: nil)
             attributedTxt.enumerateAttribute(.font, in: NSRange(location: 0, length: attributedTxt.length)) { result, range, _ in
                 if let attrFont = result as? UIFont {
-                    let traits: UIFontDescriptor.SymbolicTraits = attrFont.fontDescriptor.symbolicTraits
-                    let newDescriptor = attrFont.fontDescriptor.withFamily("Hiragino Kaku Gothic Interface")
+                    var newDescriptor = attrFont.fontDescriptor.withFamily("")
+                    // 正規表現で英数字記号かを判定
+                    let checkingResults = regex.matches(in: attributedTxt.string, range: range)
+                    if checkingResults.count > 0 {
+                        newDescriptor = attrFont.fontDescriptor.withFamily(".SFUI")
+                    } else {
+                        newDescriptor = attrFont.fontDescriptor.withFamily("Hiragino Kaku Gothic Interface")
+                    }
 
                     let hiraginoFont = UIFont(descriptor: newDescriptor, size: attrFont.pointSize)
                     attributedTxt.addAttribute(.font, value: hiraginoFont, range: range)
 
+                    let traits: UIFontDescriptor.SymbolicTraits = attrFont.fontDescriptor.symbolicTraits
                     if (traits.rawValue & UIFontDescriptor.SymbolicTraits.traitBold.rawValue) != 0 {
                         let boldFont = hiraginoFont.stm.bold().build()
                         attributedTxt.addAttribute(.font, value: boldFont, range: range)

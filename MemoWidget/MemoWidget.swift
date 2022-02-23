@@ -84,7 +84,5 @@ struct MemoWidget_Previews: PreviewProvider {
     static var previews: some View {
         MemoWidgetEntryView(memoEntry: .previewData)
             .previewContext(WidgetPreviewContext(family: .systemSmall))
-        MemoWidgetEntryView(memoEntry: .previewData)
-            .previewContext(WidgetPreviewContext(family: .systemMedium))
     }
 }

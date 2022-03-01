@@ -31,9 +31,15 @@ extension MemoModel {
          /Users/nekokichi/Library/Developer/CoreSimulator/Devices/xxxx/data/Containers/Shared/AppGroup/xxxx/default.realm、
          に保存
          */
-        var config = Realm.Configuration()
+        var config = Realm.Configuration(
+            schemaVersion: 2,
+            migrationBlock: { _, oldSchemaVersion in
+                if oldSchemaVersion < 2 {
+                }
+            })
+        Realm.Configuration.defaultConfiguration = config
         let container = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.Nekokichi.WidgetWithRealm")!
-        config.fileURL = container.appendingPathComponent("db.realm")
+        config.fileURL = container.appendingPathComponent("default.realm")
         do {
             let realmResult = try Realm(configuration: config)
             return realmResult
